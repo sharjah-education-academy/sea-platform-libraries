@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Specify the JavaScript version
+    "module": "commonjs", // Module system
+    "outDir": "./dist", // Directory for compiled files
+    "declaration": true, // Emit .d.ts files
+    "declarationMap": true, // Emit source maps for .d.ts files (optional)
+    "rootDir": "./src", // Root directory of source files
+    "strict": true, // Enable strict type-checking
+    "esModuleInterop": true, // Enable interoperability between ES Modules and CommonJS
+    "emitDecoratorMetadata": true, // For decorators (optional)
+    "experimentalDecorators": true // For decorators
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

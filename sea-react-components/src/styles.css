@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-animation {
+  @apply sea-transition-all sea-duration-300 sea-ease-in-out;
+}
