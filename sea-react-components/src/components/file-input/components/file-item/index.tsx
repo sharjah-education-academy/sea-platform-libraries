@@ -1,7 +1,7 @@
 import React from "react";
 import { FileState, UploadStatuses } from "../..";
 import Icon from "../../../icon";
-import NumbersUtils from "../../../../utils/numbers";
+import { Utils } from "sea-platform-helpers";
 import Button from "../../../button";
 
 type Props = {
@@ -23,7 +23,7 @@ export default function FileItem({
               {file.name}
             </p>
             <p className="sea-text-sm sea-text-info">
-              {NumbersUtils(file.size).format("0.0 b")}
+              {Utils.Number.default(file.size).format("0.0 b")}
             </p>
           </div>
         </div>

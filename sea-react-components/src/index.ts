@@ -1,14 +1,9 @@
 import "./styles.css";
 
 // utils
-export * as StringUtils from "./utils/string";
-export * as MomentUtils from "./utils/moment";
 export * as ValidationUtils from "./utils/validation";
 export * as JWTUtils from "./utils/jwt";
-export * as ArrayUtils from "./utils/array";
-export * as TreeUtils from "./utils/tree";
 export * as ColorUtils from "./utils/color";
-export * as NumbersUtils from "./utils/numbers";
 export * as AxiosUtils from "./utils/axios";
 export * as FileUtils from "./utils/file";
 

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import TreeCheckboxItem from "./components/tree-checkbox-item";
 import { makeTreeNode } from "./utils";
-import { flattenTree } from "../../utils/tree";
+import { Utils as U } from "sea-platform-helpers";
 
 export const Utils = { makeTreeNode };
 
@@ -41,7 +41,7 @@ const TreeCheckbox = <K,>({
 
   useEffect(() => {
     const flattenArrays = currentNodes.map((node) =>
-      flattenTree(node, "children")
+      U.Tree.flattenTree(node, "children")
     );
 
     const flattenNodes = flattenArrays.reduce(

@@ -1,5 +1,5 @@
 "use client";
-import moment from "moment";
+import { Utils } from "sea-platform-helpers";
 import { useEffect, useState } from "react";
 
 export type Props = {
@@ -34,7 +34,7 @@ export default function CountDown({ timeInSeconds, finishObserver }: Props) {
     if (isFinished) finishObserver();
   }, [finishObserver, isFinished]);
 
-  const formattedTime = moment
+  const formattedTime = Utils.Moment.default
     .utc(time * 1000)
     .format(time >= 3600 ? "HH:mm:ss" : "mm:ss");
   return formattedTime;

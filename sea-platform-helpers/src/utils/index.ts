@@ -4,3 +4,5 @@ export * as String from "./string";
 export * as Moment from "./moment";
 export * as DFS from "./dfs";
 export * as Array from "./array";
+export * as Number from "./numbers";
+export * as Tree from "./tree";
