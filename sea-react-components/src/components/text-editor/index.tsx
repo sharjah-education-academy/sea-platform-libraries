@@ -74,30 +74,29 @@ export default function TextEditor({
         heading: {
           levels: headingLevels,
           HTMLAttributes: {
-            // class: "sea-text-6xl sea-text-4xl sea-text-2xl",
+            // class: "text-6xl text-4xl text-2xl",
           },
         },
         code: {
           HTMLAttributes: {
-            class:
-              "sea-bg-orange-200 sea-text-black sea-font-light sea-p-1 sea-rounded-md",
+            class: "bg-orange-200 text-black font-light p-1 rounded-md",
           },
         },
         // codeBlock: {
         //   HTMLAttributes: {
         //     class:
-        //       "sea-bg-orange-200 sea-text-black sea-font-light sea-p-1 sea-rounded-md",
+        //       "bg-orange-200 text-black font-light p-1 rounded-md",
         //   },
         // },
         bold: {
           HTMLAttributes: {
-            class: "sea-font-bold",
+            class: "font-bold",
           },
         },
         blockquote: {
           HTMLAttributes: {
             class:
-              "sea-p-4 sea-my-4 sea-border-s-4 sea-border-gray-300 sea-bg-gray-50 dark:sea-border-gray-500 dark:sea-bg-gray-300",
+              "p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-300",
           },
         },
         horizontalRule: {},
@@ -119,7 +118,7 @@ export default function TextEditor({
         isAllowedUri: isAllowedUri,
         shouldAutoLink: shouldAutoLink,
         HTMLAttributes: {
-          class: "sea-text-primary sea-underline",
+          class: "text-primary underline",
         },
       }),
       TextAlign.configure({
@@ -129,13 +128,13 @@ export default function TextEditor({
         lowlight,
         // HTMLAttributes: {
         //   class:
-        //     "sea-bg-orange-200 sea-text-black sea-font-light sea-p-1 sea-rounded-md",
+        //     "bg-orange-200 text-black font-light p-1 rounded-md",
         // },
       }),
       Image.configure({
         allowBase64: true,
         // HTMLAttributes: {
-        //   class: "sea-border-2 sea-border-black",
+        //   class: "border-2 border-black",
         // },
       }),
       Gapcursor,
@@ -146,12 +145,12 @@ export default function TextEditor({
       TableCell.configure({
         HTMLAttributes: {
           class:
-            "sea-border sea-border-gray-300 sea-box-border sea-min-w-[1em] sea-px-2 sea-py-1 sea-relative sea-align-top",
+            "border border-gray-300 box-border min-w-[1em] px-2 py-1 relative align-top",
         },
       }),
       TableHeader.configure({
         HTMLAttributes: {
-          class: "sea-bg-gray-100 sea-border sea-border-gray-300",
+          class: "bg-gray-100 border border-gray-300",
         },
       }),
       TableRow.configure({}),
@@ -160,7 +159,7 @@ export default function TextEditor({
     editorProps: {
       attributes: {
         class:
-          "sea-prose sea-prose-sm sm:sea-prose-base lg:sea-prose-lg xl:sea-prose-2xl sea-m-5 focus:sea-outline-none",
+          "prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none",
       },
     },
     autofocus: false,
@@ -176,7 +175,7 @@ export default function TextEditor({
   // console.log(editor);
 
   return (
-    <div className="sea-flex sea-flex-col sea-gap-1">
+    <div className="flex flex-col gap-1">
       <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet"
@@ -189,7 +188,7 @@ export default function TextEditor({
         placeholder={placeholder}
       />
       {/* <BubbleMenu editor={editor}>
-        <div className="sea-bg-black sea-bg-opacity-60 sea-p-2 sea-rounded-md">
+        <div className="bg-black bg-opacity-60 p-2 rounded-md">
           AAA
         </div>
       </BubbleMenu> */}

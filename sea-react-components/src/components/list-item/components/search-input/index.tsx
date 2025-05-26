@@ -17,7 +17,7 @@ export default function SearchInput({
   const [debouncedQuery, setDebouncedQuery] = useState("");
 
   useEffect(() => {
-    setCurrentValue(value?.toString());
+    setCurrentValue((value || "").toString());
   }, [value]);
 
   useEffect(() => {
@@ -40,10 +40,7 @@ export default function SearchInput({
       value={currentValue}
       onChange={(e) => setCurrentValue(e.target.value)}
       end={
-        <Icon
-          icon="material-symbols:search"
-          className="sea-w-5 sea-h-5 sea-text-primary"
-        />
+        <Icon icon="material-symbols:search" className="w-5 h-5 text-primary" />
       }
       {...props}
     />

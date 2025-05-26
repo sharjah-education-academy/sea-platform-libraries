@@ -6,10 +6,7 @@ export type Props = {} & React.HTMLAttributes<HTMLDivElement>;
 export default function Skeleton({ className }: Props) {
   return (
     <div
-      className={clsx(
-        "sea-bg-gray-300 sea-animate-pulse sea-rounded-md",
-        className
-      )}
+      className={clsx("bg-gray-300 animate-pulse rounded-md", className)}
     ></div>
   );
 }

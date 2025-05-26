@@ -25,8 +25,8 @@ export default function Tab({
   getParam,
   direction = "horizontal",
 }: Props) {
-  let className = "sea-flex-row";
-  if (direction === "vertical") className = "sea-flex-col";
+  let className = "flex-row";
+  if (direction === "vertical") className = "flex-col";
 
   useEffect(() => {
     if (tabKey && updateParams) updateParams({ [name]: tabKey });
@@ -44,19 +44,13 @@ export default function Tab({
   }, []);
 
   return (
-    <div
-      className={clsx(
-        "sea-flex sea-items-center sea-justify-around sea-gap-1",
-        className
-      )}
-    >
+    <div className={clsx("flex items-center justify-around gap-1", className)}>
       {tabs.map((t, i) => (
         <button
           key={`tab-${name}-${t.key}-${i}`}
           className={clsx(
-            "sea-pb-1",
-            tabKey === t.key &&
-              "sea-border-b-2 sea-border-primary sea-text-primary"
+            "pb-1",
+            tabKey === t.key && "border-b-2 border-primary text-primary"
           )}
           onClick={() => setTabKey(t.key)}
         >

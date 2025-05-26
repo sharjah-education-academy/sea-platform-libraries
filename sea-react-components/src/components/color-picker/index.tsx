@@ -14,10 +14,10 @@ export default function ColorPicker({
   ...props
 }: Props) {
   return (
-    <div className="sea-relative sea-flex sea-items-center sea-rounded-lg">
+    <div className="relative flex items-center rounded-lg">
       {showDisplay && (
         <div
-          className="sea-w-full sea-h-10 sea-rounded-lg sea-flex sea-items-center sea-justify-center"
+          className="w-full h-10 rounded-lg flex items-center justify-center"
           style={{
             backgroundColor: color,
             color: isColorLight(color) ? "#000000" : "#FFFFFF",
@@ -30,7 +30,7 @@ export default function ColorPicker({
       {/* Hidden color input */}
       <input
         type="color"
-        className="sea-absolute sea-inset-0 sea-w-full sea-h-full sea-opacity-0 sea-cursor-pointer"
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         value={color}
         onChange={(e) => setColor(e.target.value)}
         {...props}

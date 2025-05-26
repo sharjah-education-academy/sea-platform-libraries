@@ -13,34 +13,32 @@ export default function Toggle({ checked, onChange, label, disabled }: Props) {
   };
 
   return (
-    <label className="sea-flex sea-items-center sea-space-x-3 sea-cursor-pointer sea-select-none">
+    <label className="flex items-center space-x-3 cursor-pointer select-none">
       {label && (
-        <span className="sea-text-sm sea-font-medium sea-text-gray-700">
-          {label}
-        </span>
+        <span className="text-sm font-medium text-gray-700">{label}</span>
       )}
-      <div className="sea-relative">
+      <div className="relative">
         <input
           type="checkbox"
-          className="sea-sr-only"
+          className="sr-only"
           checked={checked}
           onChange={handleChange}
           disabled={disabled}
         />
         <div
           className={clsx(
-            "sea-block sea-w-10 sea-h-6 sea-rounded-full sea-transition",
+            "block w-10 h-6 rounded-full transition",
             disabled
-              ? "sea-bg-gray-300"
+              ? "bg-gray-300"
               : checked
-              ? "sea-bg-primary"
-              : "sea-bg-primary sea-bg-opacity-40"
+              ? "bg-primary"
+              : "bg-primary bg-opacity-40"
           )}
         ></div>
         <div
           className={clsx(
-            "sea-absolute sea-top-1 sea-left-1 sea-h-4 sea-w-4 sea-bg-white sea-rounded-full sea-transition",
-            checked ? "sea-translate-x-4" : ""
+            "absolute top-1 left-1 h-4 w-4 bg-white rounded-full transition",
+            checked ? "translate-x-4" : ""
           )}
         ></div>
       </div>

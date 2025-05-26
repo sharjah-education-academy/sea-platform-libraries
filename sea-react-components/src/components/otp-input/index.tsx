@@ -25,8 +25,8 @@ export default function OTPInput({ length, onChange, errorMessage }: Props) {
   };
 
   return (
-    <div className="sea-flex sea-flex-col sea-gap-2">
-      <div className="sea-flex sea-items-center sea-gap-5">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-5">
         {otpParts.map((p, i) => {
           return (
             <Input
@@ -38,7 +38,7 @@ export default function OTPInput({ length, onChange, errorMessage }: Props) {
               id={`part-${i}`}
               name={`part-${i}`}
               placeholder="*"
-              className="sea-w-10 sea-h-10 sea-text-center sea-text-3xl"
+              className="w-10 h-10 text-center text-3xl"
               maxLength={1}
               value={p}
               onKeyDown={(e) => {
@@ -60,7 +60,7 @@ export default function OTPInput({ length, onChange, errorMessage }: Props) {
       </div>
 
       {errorMessage && (
-        <p className="sea-pl-1 sea-text-sm sea-text-error">{errorMessage}</p>
+        <p className="pl-1 text-sm text-error">{errorMessage}</p>
       )}
     </div>
   );

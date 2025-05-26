@@ -52,7 +52,7 @@ export default function Pagination({ name, totalPages, page, setPage }: Props) {
     // Add left ellipsis
     if (showLeftEllipsis) {
       pages.push(
-        <span key={`table-${name}-ellipsis-left`} className="sea-text-gray-400">
+        <span key={`table-${name}-ellipsis-left`} className="text-gray-400">
           ...
         </span>
       );
@@ -76,10 +76,7 @@ export default function Pagination({ name, totalPages, page, setPage }: Props) {
     // Add right ellipsis
     if (showRightEllipsis) {
       pages.push(
-        <span
-          key={`table-${name}-ellipsis-right`}
-          className="sea-text-gray-400"
-        >
+        <span key={`table-${name}-ellipsis-right`} className="text-gray-400">
           ...
         </span>
       );
@@ -99,7 +96,7 @@ export default function Pagination({ name, totalPages, page, setPage }: Props) {
   };
 
   return (
-    <div className="sea-flex sea-items-center sea-justify-end sea-gap-3">
+    <div className="flex items-center justify-end gap-3">
       <button
         disabled={previousDisabled}
         onClick={() => handleChangePage(page - 1)}
@@ -107,10 +104,10 @@ export default function Pagination({ name, totalPages, page, setPage }: Props) {
         <Icon
           icon="ooui:next-rtl"
           className={clsx(
-            "sea-transition-all sea-duration-300 sea-ease-in-out",
+            "transition-all duration-300 ease-in-out",
             previousDisabled
-              ? "sea-text-gray-200"
-              : "sea-text-secondary hover:sea-text-opacity-50"
+              ? "text-gray-200"
+              : "text-secondary hover:text-opacity-50"
           )}
         />
       </button>
@@ -137,10 +134,10 @@ export default function Pagination({ name, totalPages, page, setPage }: Props) {
         <Icon
           icon="ooui:next-ltr"
           className={clsx(
-            "sea-transition-all sea-duration-300 sea-ease-in-out",
+            "transition-all duration-300 ease-in-out",
             nextDisabled
-              ? "sea-text-gray-200"
-              : "sea-text-secondary hover:sea-text-opacity-50"
+              ? "text-gray-200"
+              : "text-secondary hover:text-opacity-50"
           )}
         />
       </button>

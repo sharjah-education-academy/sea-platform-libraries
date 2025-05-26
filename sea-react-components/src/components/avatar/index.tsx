@@ -36,7 +36,7 @@ export default function Avatar({
       alt={alt}
       width={sizeValue}
       height={sizeValue}
-      className={clsx("sea-object-cover", className)}
+      className={clsx("object-cover", className)}
     />
   );
 }

@@ -140,7 +140,7 @@ const TreeCheckbox = <K,>({
   };
 
   return (
-    <div className="sea-flex sea-flex-col sea-gap-3">
+    <div className="flex flex-col gap-3">
       {currentNodes.map((n) => (
         <TreeCheckboxItem
           key={`${name}-${n.key}`}

@@ -15,35 +15,35 @@ export default function FileItem({
   handleDeleteFile,
 }: Props) {
   return (
-    <div className="sea-px-2 sea-py-1 sea-rounded-lg sea-bg-info sea-bg-opacity-20 sea-max-w-52">
-      <div className="sea-grid sea-grid-cols-4 sea-gap-2 sea-items-center">
-        <div className="sea-col-span-3">
+    <div className="px-2 py-1 rounded-lg bg-info bg-opacity-20 max-w-52">
+      <div className="grid grid-cols-4 gap-2 items-center">
+        <div className="col-span-3">
           <div>
-            <p className="sea-text-sm sea-text-text-dark sea-font-semibold sea-truncate">
+            <p className="text-sm text-text font-semibold truncate">
               {file.name}
             </p>
-            <p className="sea-text-sm sea-text-info">
+            <p className="text-sm text-info">
               {Utils.Number.default(file.size).format("0.0 b")}
             </p>
           </div>
         </div>
-        <div className="sea-col-span-1">
-          <div className="sea-flex sea-items-center sea-justify-end sea-gap-1">
+        <div className="col-span-1">
+          <div className="flex items-center justify-end gap-1">
             {file.status === UploadStatuses.Failed && (
               <>
                 <Icon
                   icon="mdi:cloud-remove-outline"
-                  className="sea-w-5 sea-h-5 sea-text-error"
+                  className="w-5 h-5 text-error"
                 />
 
                 <Button
                   type="button"
-                  className="sea-bg-transparent"
+                  className="bg-transparent"
                   onClick={() => handleUploadFile(file)}
                 >
                   <Icon
                     icon="pajamas:retry"
-                    className="sea-w-5 sea-h-5 sea-text-primary hover:sea-text-opacity-50 custom-animation"
+                    className="w-5 h-5 text-primary hover:text-opacity-50 transition-all duration-300 ease-in-out"
                   />
                 </Button>
               </>
@@ -54,7 +54,7 @@ export default function FileItem({
             ) && (
               <Icon
                 icon="line-md:uploading-loop"
-                className="sea-w-5 sea-h-5 sea-text-info"
+                className="w-5 h-5 text-info"
               />
             )}
 
@@ -62,19 +62,19 @@ export default function FileItem({
               <>
                 <Icon
                   icon="ic:outline-cloud-done"
-                  className="sea-w-5 sea-h-5 sea-text-primary"
+                  className="w-5 h-5 text-primary"
                 />
 
                 <Button
                   type="button"
-                  className="sea-bg-transparent"
+                  className="bg-transparent"
                   onClick={() => {
                     handleDeleteFile(file);
                   }}
                 >
                   <Icon
                     icon="famicons:close"
-                    className="sea-w-5 sea-h-5 sea-text-error custom-animation"
+                    className="w-5 h-5 text-error transition-all duration-300 ease-in-out"
                   />
                 </Button>
               </>

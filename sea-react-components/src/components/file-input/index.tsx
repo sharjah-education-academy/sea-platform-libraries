@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import clsx from "clsx";
 import FileItem from "./components/file-item";
 
@@ -141,16 +141,14 @@ export default function FileInput<T>({
   };
 
   return (
-    <div className="sea-w-full sea-flex sea-flex-col sea-gap-1">
+    <div className="w-full flex flex-col gap-1">
       {(!files.length || multiple) && (
         <div
           className={clsx(
-            "sea-border-0.5 sea-px-3 sea-py-2 sea-rounded-xl sea-text-center",
-            "sea-cursor-pointer sea-transition-all sea-duration-200 sea-ease-in-out",
-            "hover:sea-border-primary",
-            errorMessage
-              ? "sea-border-error"
-              : isDragging && "sea-border-primary"
+            "border-0.5 px-3 py-2 rounded-xl text-center",
+            "cursor-pointer transition-all duration-200 ease-in-out",
+            "hover:border-primary",
+            errorMessage ? "border-error" : isDragging && "border-primary"
           )}
           onDragOver={(e) => {
             e.preventDefault();
@@ -160,7 +158,7 @@ export default function FileInput<T>({
           onDrop={handleDrop}
           onClick={() => inputRef.current?.click()}
         >
-          <p className="sea-text-text-light">
+          <p className="text-text-light">
             Drag & Drop files here or click to select files
           </p>
           <input
@@ -168,7 +166,7 @@ export default function FileInput<T>({
             name={name}
             ref={inputRef}
             type="file"
-            className="sea-hidden"
+            className="hidden"
             accept={acceptedTypes.join(",")}
             multiple={multiple}
             onChange={(e) => handleFiles(e.target.files)}
@@ -176,7 +174,7 @@ export default function FileInput<T>({
         </div>
       )}
 
-      <div className="sea-flex sea-flex-nowrap sea-gap-2 sea-overflow-y-auto">
+      <div className="flex flex-nowrap gap-2 overflow-y-auto">
         {files.map((f, i) => (
           <FileItem
             key={`file-${name}-${i}`}
@@ -187,7 +185,7 @@ export default function FileInput<T>({
         ))}
       </div>
       {errorMessage && (
-        <p className="sea-pl-1 sea-text-sm sea-text-error">{errorMessage}</p>
+        <p className="pl-1 text-sm text-error">{errorMessage}</p>
       )}
     </div>
   );

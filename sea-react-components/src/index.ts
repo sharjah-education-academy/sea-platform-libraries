@@ -1,4 +1,4 @@
-import "./styles.css";
+// import "./styles.css";
 
 // utils
 export * as ValidationUtils from "./utils/validation";
@@ -70,11 +70,14 @@ export {
 } from "./components/count-down";
 
 export {
+  default as ListItem,
+  Props as ListItemProps,
+} from "./components/list-item";
+
+export {
   default as Table,
   Props as TableProps,
   TableColumn,
-  TableFilter,
-  DEFAULT_TABLE_FILTER_VALUE,
 } from "./components/table";
 
 export { default as Tab, Props as TabProps } from "./components/tab";

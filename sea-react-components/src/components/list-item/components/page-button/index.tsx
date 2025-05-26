@@ -16,14 +16,14 @@ export default function PageButton({
     <button
       type="button"
       className={clsx(
-        "sea-border-b-2 sea-w-8 sea-h-8 sea-rounded-md sea-flex sea-items-center sea-justify-center sea-bg-opacity-30 sea-overflow-hidden hover:sea-bg-secondary hover:sea-bg-opacity-10 hover:sea-border-b-secondary sea-transition-all sea-duration-300 sea-ease-in-out",
+        "border-b-2 w-8 h-8 rounded-md flex items-center justify-center bg-opacity-30 overflow-hidden hover:bg-secondary hover:bg-opacity-10 hover:border-b-secondary transition-all duration-300 ease-in-out",
         page === currentPage
-          ? "sea-border-b-secondary sea-bg-secondary"
-          : "sea-border-b-gray-200 sea-bg-gray-200"
+          ? "border-b-secondary bg-secondary"
+          : "border-b-gray-200 bg-gray-200"
       )}
       onClick={() => handleChangePage(page)}
     >
-      <p className="sea-truncate sea-text-sm"> {page}</p>
+      <p className="truncate text-sm"> {page}</p>
     </button>
   );
 }

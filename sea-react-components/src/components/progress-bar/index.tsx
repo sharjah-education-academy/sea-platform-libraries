@@ -10,29 +10,29 @@ export type Types =
   | "error";
 
 const colors: Record<Types, string> = {
-  primary: "sea-bg-primary",
-  secondary: "sea-bg-secondary",
-  success: "sea-bg-success",
-  info: "sea-bg-info",
-  warning: "sea-bg-warning",
-  error: "sea-bg-error",
+  primary: "bg-primary",
+  secondary: "bg-secondary",
+  success: "bg-success",
+  info: "bg-info",
+  warning: "bg-warning",
+  error: "bg-error",
 };
 
 export type Sizes = "xs" | "sm" | "md" | "lg" | "xl";
 
 const barHights: Record<Sizes, string> = {
-  xs: "sea-h-[6px]",
-  sm: "sea-h-[10px]",
-  md: "sea-h-[14px]",
-  lg: "sea-h-[20px]",
-  xl: "sea-h-[24px]",
+  xs: "h-[6px]",
+  sm: "h-[10px]",
+  md: "h-[14px]",
+  lg: "h-[20px]",
+  xl: "h-[24px]",
 };
 const textSizes: Record<Sizes, string> = {
-  xs: "sea-text-[6px]",
-  sm: "sea-text-[10px]",
-  md: "sea-text-[12px]",
-  lg: "sea-text-[16px]",
-  xl: "sea-text-[20px]",
+  xs: "text-[6px]",
+  sm: "text-[10px]",
+  md: "text-[12px]",
+  lg: "text-[16px]",
+  xl: "text-[20px]",
 };
 
 export type Props = {
@@ -53,10 +53,10 @@ export default function ProgressBar({
   const bgClass = colors[type];
 
   return (
-    <div className="sea-relative sea-bg-gray-300 sea-rounded-full sea-overflow-hidden">
+    <div className="relative bg-gray-300 rounded-full overflow-hidden">
       <div
         className={clsx(
-          "sea-w-full sea-flex sea-items-center sea-rounded-full sea-transition-all sea-duration-300 sea-ease-in-out",
+          "w-full flex items-center rounded-full transition-all duration-300 ease-in-out",
           hightClass,
           textClass,
           bgClass,
@@ -67,7 +67,7 @@ export default function ProgressBar({
         }}
       >
         {showPercentage && (
-          <p className=" sea-text-white sea-text-center sea-w-full">
+          <p className=" text-white text-center w-full">
             {percentage ? percentage : 0} %
           </p>
         )}

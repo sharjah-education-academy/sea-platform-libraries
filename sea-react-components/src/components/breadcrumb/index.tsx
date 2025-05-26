@@ -9,18 +9,18 @@ export type Props = {
 export default function Breadcrumb({ name, children }: Props) {
   const items = React.Children.toArray(children); // Convert children to an array
   return (
-    <div className="sea-flex sea-items-center sea-gap-3">
+    <div className="flex items-center gap-3">
       {items.map((item, i) => (
         <div
           key={`${name}-breadcrumb-${i}`}
           className={clsx(
-            "sea-flex sea-items-center sea-gap-3",
-            i === items.length - 1 && "sea-text-secondary"
+            "flex items-center gap-3",
+            i === items.length - 1 && "text-primary"
           )}
         >
           <div>{item}</div>
           {i < items.length - 1 && (
-            <Icon icon="ooui:next-ltr" className="sea-text-text" />
+            <Icon icon="ooui:next-ltr" className="text-text" />
           )}
         </div>
       ))}

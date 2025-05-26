@@ -3,16 +3,13 @@ import React from "react";
 
 export type Props = {} & React.HTMLAttributes<HTMLDivElement>;
 export default function Paper({
-  className = "sea-bg-white",
+  className = "bg-white",
   children,
   ...props
 }: Props) {
   return (
     <div
-      className={clsx(
-        "sea-px-4 sea-py-2 sea-rounded-lg sea-shadow-md",
-        className
-      )}
+      className={clsx("px-4 py-2 rounded-lg shadow-md", className)}
       {...props}
     >
       {children}

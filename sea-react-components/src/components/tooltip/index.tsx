@@ -14,24 +14,22 @@ export default function Tooltip({
   text,
   children,
   placement = "top",
-  containerClassName = "sea-bg-secondary",
-  textClassName = "sea-text-white",
+  containerClassName = "bg-secondary",
+  textClassName = "text-white",
 }: Props) {
   const [visible, setVisible] = useState(false);
 
   // Define position classes based on the placement prop
   const positionClasses = {
-    top: "sea-bottom-full sea-mb-2 sea-left-1/2 sea-transform -sea-translate-x-1/2",
-    bottom:
-      "sea-top-full sea-mt-2 sea-left-1/2 sea-transform -sea-translate-x-1/2",
-    left: "sea-right-full sea-mr-2 sea-top-1/2 sea-transform -sea-translate-y-1/2",
-    right:
-      "sea-left-full sea-ml-2 sea-top-1/2 sea-transform -sea-translate-y-1/2",
+    top: "bottom-full mb-2 left-1/2 transform -translate-x-1/2",
+    bottom: "top-full mt-2 left-1/2 transform -translate-x-1/2",
+    left: "right-full mr-2 top-1/2 transform -translate-y-1/2",
+    right: "left-full ml-2 top-1/2 transform -translate-y-1/2",
   };
 
   return (
     <div
-      className="sea-relative sea-inline-block"
+      className="relative inline-block"
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
     >
@@ -39,7 +37,7 @@ export default function Tooltip({
       {visible && (
         <div
           className={clsx(
-            "sea-absolute sea-px-2 sea-py-1 sea-rounded sea-shadow-lg",
+            "absolute px-2 py-1 rounded shadow-lg",
             positionClasses[placement],
             containerClassName
           )}

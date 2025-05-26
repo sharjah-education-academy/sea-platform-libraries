@@ -5,6 +5,7 @@ export interface IPermission {
   name: string;
   key: PermissionKeys;
   children?: IPermission[] | undefined;
+  isLeaf: boolean;
 }
 
 export type IPermissionResponse = Record<AccountTypes, IPermission[]>;

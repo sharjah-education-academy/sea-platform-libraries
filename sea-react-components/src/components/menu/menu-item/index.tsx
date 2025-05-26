@@ -19,11 +19,9 @@ export default function MenuItem({
   return (
     <div
       className={clsx(
-        "sea-rounded-md sea-transition-all sea-duration-300 sea-ease-in-out",
-        selected && "sea-bg-primary",
-        !disabled
-          ? "hover:sea-bg-primary hover:sea-bg-opacity-50"
-          : "sea-bg-gray-200",
+        "rounded-md transition-all duration-300 ease-in-out",
+        selected && "bg-primary",
+        !disabled ? "hover:bg-primary hover:bg-opacity-50" : "bg-gray-200",
         className
       )}
       {...props}

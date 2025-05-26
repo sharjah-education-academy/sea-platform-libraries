@@ -120,15 +120,15 @@ export default function Carousel({
 
   return (
     <div
-      className="sea-relative sea-w-full sea-overflow-hidden"
+      className="relative w-full overflow-hidden"
       style={autoHeight ? { height: carouselHeight || "auto" } : undefined}
     >
       {/* Items */}
       <div
         ref={carouselRef}
         className={clsx(
-          "sea-flex sea-transition-transform sea-duration-500",
-          dropAndDregControl && "sea-cursor-grabbing"
+          "flex transition-transform duration-500",
+          dropAndDregControl && "cursor-grabbing"
         )}
         style={{
           transform: `translateX(-${currentSlide * 100}%)`,
@@ -137,7 +137,7 @@ export default function Carousel({
         {items.map((item, index) => (
           <div
             key={`${name}-carousel-${index}`}
-            className="sea-flex-shrink-0"
+            className="flex-shrink-0"
             style={{
               width: `${100 / itemsPerSlide}%`,
             }}
@@ -153,13 +153,13 @@ export default function Carousel({
           <button
             onClick={previousSlide}
             aria-label="Previous Slide"
-            className="sea-absolute sea-left-2 sea-top-1/2 sea-transform -sea-translate-y-1/2 sea-z-10"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10"
           >
             {previousButton || (
               <Icon
                 icon="ooui:next-rtl"
                 className={clsx(
-                  "sea-transition-all sea-duration-300 sea-ease-in-out sea-text-secondary hover:sea-text-opacity-50"
+                  "transition-all duration-300 ease-in-out text-secondary hover:text-opacity-50"
                 )}
               />
             )}
@@ -167,13 +167,13 @@ export default function Carousel({
           <button
             onClick={nextSlide}
             aria-label="Next Slide"
-            className="sea-absolute sea-right-2 sea-top-1/2 sea-transform -sea-translate-y-1/2 sea-z-10"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10"
           >
             {nextButton || (
               <Icon
                 icon="ooui:next-ltr"
                 className={clsx(
-                  "sea-transition-all sea-duration-300 sea-ease-in-out sea-text-secondary hover:sea-text-opacity-50"
+                  "transition-all duration-300 ease-in-out text-secondary hover:text-opacity-50"
                 )}
               />
             )}
@@ -183,13 +183,13 @@ export default function Carousel({
 
       {/* Dots */}
       {showDots && (
-        <div className="sea-absolute sea-bottom-2 sea-left-1/2 sea-transform -sea-translate-x-1/2 sea-flex sea-space-x-2">
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {Array.from({ length: totalSlides }).map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`sea-w-2 sea-h-2 sea-rounded-full ${
-                currentSlide === index ? "sea-bg-secondary" : "sea-bg-gray-300"
+              className={`w-2 h-2 rounded-full ${
+                currentSlide === index ? "bg-secondary" : "bg-gray-300"
               }`}
             >
               {dot || ""}

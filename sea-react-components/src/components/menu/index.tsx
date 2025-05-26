@@ -16,9 +16,7 @@ export default function Menu({
 }: Props) {
   return (
     <SMenu menuButton={<MenuButton>{menuButton}</MenuButton>} {...props}>
-      <div
-        className={clsx("sea-bg-white sea-rounded-xl sea-shadow-lg", className)}
-      >
+      <div className={clsx("bg-white rounded-xl shadow-lg", className)}>
         {children}
       </div>
     </SMenu>

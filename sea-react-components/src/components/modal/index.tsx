@@ -16,23 +16,22 @@ export type ModalPosition =
 export type ModalSize = "sm" | "md" | "lg" | "xl";
 
 const sizeClasses: Record<ModalSize, string> = {
-  sm: "sea-w-1/2 md:sea-w-1/4 sea-h-auto",
-  md: "sea-w-1/2 sea-md:w-1/3 sea-h-auto",
-  lg: "sea-w-5/6 md:sea-w-1/2 sea-h-auto",
-  xl: "sea-w-5/6 md:sea-w-3/4 sea-h-auto",
+  sm: "w-1/2 md:w-1/4 h-auto",
+  md: "w-1/2 md:w-1/3 h-auto",
+  lg: "w-5/6 md:w-1/2 h-auto",
+  xl: "w-5/6 md:w-3/4 h-auto",
 };
 
 const positionClasses: Record<ModalPosition, string> = {
-  center:
-    "sea-top-1/2 sea-left-1/2 sea-transform -sea-translate-x-1/2 -sea-translate-y-1/2",
-  top: "sea-top-5 sea-left-1/2 sea-transform -sea-translate-x-1/2",
-  "top-left": "sea-top-5 sea-left-5",
-  "top-right": "sea-top-5 sea-right-5",
-  bottom: "sea-bottom-5 sea-left-1/2 sea-transform -sea-translate-x-1/2",
-  "bottom-left": "sea-bottom-5 sea-left-5",
-  "bottom-right": "sea-bottom-5 sea-right-5",
-  left: "sea-top-1/2 sea-left-5 sea-transform -sea-translate-y-1/2",
-  right: "sea-top-1/2 sea-right-5 sea-transform -sea-translate-y-1/2",
+  center: "top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2",
+  top: "top-5 left-1/2 transform -translate-x-1/2",
+  "top-left": "top-5 left-5",
+  "top-right": "top-5 right-5",
+  bottom: "bottom-5 left-1/2 transform -translate-x-1/2",
+  "bottom-left": "bottom-5 left-5",
+  "bottom-right": "bottom-5 right-5",
+  left: "top-1/2 left-5 transform -translate-y-1/2",
+  right: "top-1/2 right-5 transform -translate-y-1/2",
 };
 
 export type Props = {
@@ -55,12 +54,12 @@ export default function Modal({
   if (!isOpen) return null;
   return (
     <div
-      className="sea-fixed sea-inset-0 sea-bg-black sea-bg-opacity-50 sea-z-50 sea-flex sea-justify-center sea-items-center"
+      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center"
       onClick={onClose}
     >
       <div
         className={clsx(
-          "sea-absolute sea-bg-white sea-rounded-lg sea-shadow-lg sea-p-6",
+          "absolute bg-white rounded-lg shadow-lg p-6",
           sizeClasses[size],
           positionClasses[position],
           className
@@ -73,11 +72,11 @@ export default function Modal({
       >
         <button
           onClick={onClose}
-          className="sea-absolute sea-top-2 sea-right-2 sea-text-secondary-dark"
+          className="absolute top-2 right-2 text-secondary-dark"
         >
           <Icon
             icon="line-md:close-small"
-            className="sea-h-5 sea-w-5 hover:sea-scale-110 sea-transition-all sea-duration-300 sea-ease-in-out"
+            className="h-5 w-5 hover:scale-110 transition-all duration-300 ease-in-out"
           />
         </button>
         {children}

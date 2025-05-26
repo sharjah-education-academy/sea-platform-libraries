@@ -21,28 +21,28 @@ const colors: Record<
   }
 > = {
   primary: {
-    bg: "sea-bg-primary",
-    text: "sea-text-primary",
+    bg: "bg-primary",
+    text: "text-primary",
   },
   secondary: {
-    bg: "sea-bg-secondary",
-    text: "sea-text-secondary",
+    bg: "bg-secondary",
+    text: "text-secondary",
   },
   success: {
-    bg: "sea-bg-success",
-    text: "sea-text-success",
+    bg: "bg-success",
+    text: "text-success",
   },
   info: {
-    bg: "sea-bg-info",
-    text: "sea-text-info",
+    bg: "bg-info",
+    text: "text-info",
   },
   warning: {
-    bg: "sea-bg-warning",
-    text: "sea-text-warning",
+    bg: "bg-warning",
+    text: "text-warning",
   },
   error: {
-    bg: "sea-bg-error",
-    text: "sea-text-error",
+    bg: "bg-error",
+    text: "text-error",
   },
 };
 
@@ -76,22 +76,17 @@ export default function Alert({
   let className = colors[type].bg;
   className = clsx(
     className,
-    theme === "default"
-      ? "sea-text-white"
-      : `${colors[type].text} sea-bg-opacity-20`
+    theme === "default" ? "text-white" : `${colors[type].text} bg-opacity-20`
   );
 
   if (open)
     return (
       <div
-        className={clsx(
-          "sea-flex sea-items-center sea-gap-3 sea-rounded-lg sea-p-2",
-          className
-        )}
+        className={clsx("flex items-center gap-3 rounded-lg p-2", className)}
       >
-        {showIcon && <Icon icon={icons[type]} className="sea-h-5 sea-w-5" />}
+        {showIcon && <Icon icon={icons[type]} className="h-5 w-5" />}
 
-        <p className="sea-flex-1">{message}</p>
+        <p className="flex-1">{message}</p>
 
         {closeButton && (
           <button
@@ -104,7 +99,7 @@ export default function Alert({
           >
             <Icon
               icon="line-md:close-small"
-              className="sea-h-5 sea-w-5 hover:sea-scale-110 sea-transition-all sea-duration-300 sea-ease-in-out"
+              className="h-5 w-5 hover:scale-110 transition-all duration-300 ease-in-out"
             />
           </button>
         )}

@@ -17,10 +17,7 @@ export default function RadioButton({
   ...props
 }: Props) {
   return (
-    <label
-      htmlFor={id}
-      className="sea-flex sea-items-center sea-space-x-2 sea-cursor-pointer"
-    >
+    <label htmlFor={id} className="flex items-center space-x-2 cursor-pointer">
       <input
         {...props}
         type="radio"
@@ -33,15 +30,11 @@ export default function RadioButton({
 
       <div
         className={clsx(
-          "sea-w-5 sea-h-5 sea-rounded-full sea-border-2 sea-flex sea-items-center sea-justify-center",
-          checked
-            ? "sea-bg-primary sea-border-primary"
-            : "sea-bg-white sea-border-gray-300"
+          "w-5 h-5 rounded-full border-2 flex items-center justify-center",
+          checked ? "bg-primary border-primary" : "bg-white border-gray-300"
         )}
       >
-        {checked && (
-          <div className="sea-w-3 sea-h-3 sea-rounded-full sea-bg-white" />
-        )}
+        {checked && <div className="w-3 h-3 rounded-full bg-white" />}
       </div>
 
       {label}

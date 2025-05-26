@@ -40,17 +40,17 @@ export default function Select<T>({
     <>
       {multiselect ? (
         selectedOptions.length ? (
-          <div className="sea-flex sea-items-center sea-gap-3">
+          <div className="flex items-center gap-3">
             {selectedOptions.map((o, i) => (
               <div
                 key={`option-${i}`}
-                className="sea-bg-primary sea-bg-opacity-50 sea-px-2 sea-py-1 sea-rounded-2xl sea-flex sea-items-center sea-gap-1"
+                className="bg-primary bg-opacity-50 px-2 py-1 rounded-2xl flex items-center gap-1"
               >
-                <p className="sea-text-black">{o.label}</p>
+                <p className="text-black">{o.label}</p>
 
                 <Icon
                   icon="line-md:close-small"
-                  className="sea-h-5 sea-w-5 hover:sea-scale-110 sea-transition-all sea-duration-300 sea-ease-in-out"
+                  className="h-5 w-5 hover:scale-110 transition-all duration-300 ease-in-out"
                   onClick={() => handleRemoveSelectedOption(o)}
                 />
               </div>
@@ -94,12 +94,12 @@ export default function Select<T>({
       menuButton={
         <div
           className={clsx(
-            "sea-text-text sea-flex sea-items-center sea-justify-between sea-gap-2 sea-bg-white sea-px-3 sea-py-2 sea-rounded-xl sea-border-0.5 hover:sea-border-primary",
+            "text-text flex items-center justify-between gap-2 bg-white px-3 py-2 rounded-xl border-0.5 hover:border-primary",
             errorMessage
-              ? "sea-border-error"
+              ? "border-error"
               : isFocused
-              ? "sea-border-primary"
-              : "sea-border-gray-200",
+              ? "border-primary"
+              : "border-gray-200",
             buttonClassName
           )}
         >
@@ -110,14 +110,14 @@ export default function Select<T>({
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
       children={
-        <div className="sea-flex sea-flex-col sea-gap-2 sea-p-1 sea-min-w-36">
+        <div className="flex flex-col gap-2 p-1 min-w-36">
           {options.map((o, i) => (
             <MenuItem
               key={`${name}-option-${i}`}
               selected={selectedOptions.includes(o)}
               onClick={() => handleClickOption(o)}
               children={
-                <p className="sea-flex sea-items-center sea-gap-2 sea-px-4 sea-py-2 sea-text-left">
+                <p className="flex items-center gap-2 px-4 py-2 text-left">
                   {o.label}
                 </p>
               }

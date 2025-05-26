@@ -243,11 +243,11 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
           icon: "majesticons:table-line",
           type: "menu",
           menuContent: (
-            <div className="sea-p-1 sea-grid sea-grid-cols-2 sea-gap-1">
-              <div className="sea-col-span-2 sea-flex sea-items-center sea-gap-1">
+            <div className="p-1 grid grid-cols-2 gap-1">
+              <div className="col-span-2 flex items-center gap-1">
                 <MenuItem
                   key="insert-table"
-                  className="sea-p-1 "
+                  className="p-1 "
                   onClick={() =>
                     editor
                       .chain()
@@ -259,157 +259,145 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
                   <Tooltip
                     text="Insert Table"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
-                    <Icon
-                      icon="majesticons:table-line"
-                      className="sea-w-5 sea-h-5"
-                    />
+                    <Icon icon="majesticons:table-line" className="w-5 h-5" />
                   </Tooltip>
                 </MenuItem>
               </div>
 
-              <div className="sea-col-span-2 sea-flex sea-items-center sea-gap-1">
+              <div className="col-span-2 flex items-center gap-1">
                 <MenuItem
                   key="add-column-before"
-                  className="sea-p-1 "
+                  className="p-1 "
                   onClick={() => editor.chain().focus().addColumnBefore().run()}
                 >
                   <Tooltip
                     text="Add Column Before"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
                     <Icon
                       icon="mdi:table-column-plus-before"
-                      className="sea-w-5 sea-h-5"
+                      className="w-5 h-5"
                     />
                   </Tooltip>
                 </MenuItem>
                 <MenuItem
                   key="add-column-after"
-                  className="sea-p-1 "
+                  className="p-1 "
                   onClick={() => editor.chain().focus().addColumnAfter().run()}
                 >
                   <Tooltip
                     text="Add Column After"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
                     <Icon
                       icon="mdi:table-column-plus-after"
-                      className="sea-w-5 sea-h-5"
+                      className="w-5 h-5"
                     />
                   </Tooltip>
                 </MenuItem>
                 <MenuItem
                   key="remove-column"
-                  className="sea-p-1 "
+                  className="p-1 "
                   onClick={() => editor.chain().focus().deleteColumn().run()}
                 >
                   <Tooltip
                     text="Remove Column"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
-                    <Icon
-                      icon="mdi:table-column-remove"
-                      className="sea-w-5 sea-h-5"
-                    />
+                    <Icon icon="mdi:table-column-remove" className="w-5 h-5" />
                   </Tooltip>
                 </MenuItem>
               </div>
 
-              <div className="sea-col-span-2 sea-flex sea-items-center sea-gap-1">
+              <div className="col-span-2 flex items-center gap-1">
                 <MenuItem
                   key="add-row-before"
-                  className="sea-p-1"
+                  className="p-1"
                   onClick={() => editor.chain().focus().addRowBefore().run()}
                 >
                   <Tooltip
                     text="Add Row Before"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
                     <Icon
                       icon="mdi:table-row-plus-before"
-                      className="sea-w-5 sea-h-5"
+                      className="w-5 h-5"
                     />
                   </Tooltip>
                 </MenuItem>
                 <MenuItem
                   key="add-row-after"
-                  className="sea-p-1"
+                  className="p-1"
                   onClick={() => editor.chain().focus().addRowAfter().run()}
                 >
                   <Tooltip
                     text="Add Row After"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
-                    <Icon
-                      icon="mdi:table-row-plus-after"
-                      className="sea-w-5 sea-h-5"
-                    />
+                    <Icon icon="mdi:table-row-plus-after" className="w-5 h-5" />
                   </Tooltip>
                 </MenuItem>
                 <MenuItem
                   key="remove-row"
-                  className="sea-p-1"
+                  className="p-1"
                   onClick={() => editor.chain().focus().deleteRow().run()}
                 >
                   <Tooltip
                     text="Remove Row"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
-                    <Icon
-                      icon="mdi:table-row-remove"
-                      className="sea-w-5 sea-h-5"
-                    />
+                    <Icon icon="mdi:table-row-remove" className="w-5 h-5" />
                   </Tooltip>
                 </MenuItem>
               </div>
 
-              <div className="sea-col-span-2 sea-flex sea-items-center sea-gap-1">
+              <div className="col-span-2 flex items-center gap-1">
                 <MenuItem
                   key="merge-cells"
-                  className="sea-p-1"
+                  className="p-1"
                   onClick={() => editor.chain().focus().mergeCells().run()}
                 >
                   <Tooltip
                     text="Merge Cells"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
                     <Icon
                       icon="flowbite:merge-cells-outline"
-                      className="sea-w-5 sea-h-5"
+                      className="w-5 h-5"
                     />
                   </Tooltip>
                 </MenuItem>
                 <MenuItem
                   key="split-cells"
-                  className="sea-p-1"
+                  className="p-1"
                   onClick={() => editor.chain().focus().splitCell().run()}
                 >
                   <Tooltip
                     text="Split Cells"
                     placement="top"
-                    containerClassName="sea-bg-gray-100 sea-w-32"
-                    textClassName="sea-text-black sea-text-center sea-text-sm"
+                    containerClassName="bg-gray-100 w-32"
+                    textClassName="text-black text-center text-sm"
                   >
                     <Icon
                       icon="flowbite:split-cells-outline"
-                      className="sea-w-5 sea-h-5"
+                      className="w-5 h-5"
                     />
                   </Tooltip>
                 </MenuItem>
@@ -445,7 +433,7 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
   ];
 
   return (
-    <div className="sea-flex sea-items-center sea-gap-1 sea-flex-wrap">
+    <div className="flex items-center gap-1 flex-wrap">
       <Select<Level>
         name="heading"
         multiselect={false}
@@ -474,10 +462,7 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
       />
 
       {MARKER_SECTIONS.map((s, si) => (
-        <div
-          key={`${s.name}-${si}`}
-          className="sea-flex sea-items-center sea-gap-1"
-        >
+        <div key={`${s.name}-${si}`} className="flex items-center gap-1">
           {s.items.map((item, ii) => {
             if (item.type === "button")
               return (
@@ -487,14 +472,14 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
                   disabled={item.disabled}
                   className={clsx(
                     editor.isActive(item.name)
-                      ? "sea-bg-primary sea-bg-opacity-30"
-                      : "sea-bg-transparent hover:sea-bg-primary hover:sea-bg-opacity-30"
+                      ? "bg-primary bg-opacity-30"
+                      : "bg-transparent hover:bg-primary hover:bg-opacity-30"
                   )}
                 >
                   <Icon
                     icon={item.icon}
                     className="
-                sea-text-black sea-h-5 sea-w-5"
+                text-black h-5 w-5"
                   />
                 </Button>
               );
@@ -506,10 +491,10 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
                     <Icon
                       icon={item.icon}
                       className="
-            sea-text-black sea-h-5 sea-w-5"
+            text-black h-5 w-5"
                     />
                   }
-                  className="sea-w-28"
+                  className="w-28"
                 >
                   {item.menuContent}
                 </Menu>
@@ -522,14 +507,14 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
                     disabled={item.disabled}
                     className={clsx(
                       editor.isActive(item.name)
-                        ? "sea-bg-primary sea-bg-opacity-30"
-                        : "sea-bg-transparent hover:sea-bg-primary hover:sea-bg-opacity-30"
+                        ? "bg-primary bg-opacity-30"
+                        : "bg-transparent hover:bg-primary hover:bg-opacity-30"
                     )}
                   >
                     <Icon
                       icon={item.icon}
                       className="
-                sea-text-black sea-h-5 sea-w-5"
+                text-black h-5 w-5"
                     />
                   </Button>
 
@@ -537,7 +522,7 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
                     ref={imageFileInputRef}
                     type="file"
                     accept="image/*"
-                    className="sea-hidden"
+                    className="hidden"
                     onChange={(event) => {
                       const files = event.target.files;
                       const file = files[0];
@@ -553,7 +538,7 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
           })}
 
           {si < MARKER_SECTIONS.length - 1 && (
-            <div className="sea-h-8 sea-w-[2px] sea-bg-gray-300 sea-rounded-full"></div>
+            <div className="h-8 w-[2px] bg-gray-300 rounded-full"></div>
           )}
         </div>
       ))}

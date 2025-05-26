@@ -20,8 +20,8 @@ export default function TreeCheckboxItem<K>({
   };
 
   return (
-    <div className="sea-flex sea-flex-col sea-gap-3">
-      <div className="sea-flex sea-gap-3 sea-items-center">
+    <div className="flex flex-col gap-3">
+      <div className="flex gap-3 items-center">
         <Checkbox
           checked={node.checked !== "none"}
           semiChecked={node.checked === "some"}

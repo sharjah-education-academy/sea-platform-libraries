@@ -35,22 +35,22 @@ export default function Input({
               ? "mdi:eye-outline"
               : "mdi:eye-off-outline"
           }
-          className="sea-w-5 sea-h-5 sea-text-primary"
+          className="w-5 h-5 text-primary"
         />
       </button>
     );
   }
 
   return (
-    <div className="sea-flex sea-flex-col sea-gap-1">
+    <div className="flex flex-col gap-1">
       <div
         className={clsx(
-          "sea-flex sea-items-center sea-justify-between sea-gap-2 sea-bg-white sea-px-3 sea-py-2 sea-rounded-xl sea-border-0.5 hover:sea-border-primary",
+          "flex items-center justify-between gap-2 bg-white px-3 py-2 rounded-xl border-0.5 hover:border-primary",
           errorMessage
-            ? "sea-border-error"
+            ? "border-error"
             : isFocused
-            ? "sea-border-primary"
-            : "sea-border-gray-200"
+            ? "border-primary"
+            : "border-gray-200"
         )}
       >
         {start}
@@ -59,16 +59,13 @@ export default function Input({
           type={currentType}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          className={clsx(
-            "sea-outline-none sea-text-text sea-flex-1",
-            className
-          )}
+          className={clsx("outline-none text-text flex-1", className)}
           {...props}
         />
         {end}
       </div>
       {errorMessage && (
-        <p className="sea-pl-1 sea-text-sm sea-text-error">{errorMessage}</p>
+        <p className="pl-1 text-sm text-error">{errorMessage}</p>
       )}
     </div>
   );

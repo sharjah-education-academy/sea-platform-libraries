@@ -36,14 +36,14 @@ export default function StackedAvatars({
   const remaining = items.length - max;
   return (
     <div
-      className="sea-relative sea-flex sea-items-center sea-justify-center sea-w-full"
+      className="relative flex items-center justify-center w-full"
       style={{ height: sizeValue }}
     >
       {avatarsToDisplay.map((item, i) => (
         <Avatar
           key={`${name}-avatar-${i}`}
           {...item}
-          className={clsx(className, "sea-absolute")}
+          className={clsx(className, "absolute")}
           style={{ left: (i * sizeValue) / offsetFactor }}
           size={size}
         />
@@ -53,7 +53,7 @@ export default function StackedAvatars({
         <div
           className={clsx(
             className,
-            "sea-absolute flex sea-items-center sea-justify-center  sea-text-white sea-bg-secondary"
+            "absolute flex items-center justify-center  text-white bg-secondary"
           )}
           style={{
             left: (max * sizeValue) / offsetFactor,
