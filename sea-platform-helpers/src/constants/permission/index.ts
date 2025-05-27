@@ -34,80 +34,24 @@ export enum PermissionKeys {
   ManageDepartmentDelete = "manage-department-delete",
 
   // User
-  ContractsApp = "contracts-app",
-  ContractsAppManageContracts = "contracts-app-manage-contracts",
-  ContractsAppManageContractsRead = "contracts-app-manage-contracts-read",
-  ContractsAppManageContractsCreate = "contracts-app-manage-contracts-create",
-  ContractsAppManageContractsUpdateDetails = "contracts-app-manage-contracts-update-details",
-  ContractsAppManageContractsDelete = "contracts-app-manage-contracts-delete",
-  ContractsAppManageContractTemplates = "contracts-app-manage-contract-templates",
-  ContractsAppManageContractTemplatesRead = "contracts-app-manage-contract-templates-read",
-  ContractsAppManageContractTemplatesCreate = "contracts-app-manage-contract-templates-create",
-  ContractsAppManageContractTemplatesUpdateDetails = "contracts-app-manage-contract-templates-update-details",
-  ContractsAppManageContractTemplatesDelete = "contracts-app-manage-contract-templates-delete",
+  StrategyApp = "strategy-app",
+  StrategyAppManageContracts = "strategy-app-manage-contracts",
+  StrategyAppManageContractsRead = "strategy-app-manage-contracts-read",
+  StrategyAppManageContractsCreate = "strategy-app-manage-contracts-create",
+  StrategyAppManageContractsUpdateDetails = "strategy-app-manage-contracts-update-details",
+  StrategyAppManageContractsDelete = "strategy-app-manage-contracts-delete",
+  StrategyAppManageContractTemplates = "strategy-app-manage-contract-templates",
+  StrategyAppManageContractTemplatesRead = "strategy-app-manage-contract-templates-read",
+  StrategyAppManageContractTemplatesCreate = "strategy-app-manage-contract-templates-create",
+  StrategyAppManageContractTemplatesUpdateDetails = "strategy-app-manage-contract-templates-update-details",
+  StrategyAppManageContractTemplatesDelete = "strategy-app-manage-contract-templates-delete",
 }
 
 export const USER_PERMISSIONS: IPermission[] = [
   {
-    key: PermissionKeys.ContractsApp,
-    name: "Contract App",
-    isLeaf: false,
-    children: [
-      {
-        key: PermissionKeys.ContractsAppManageContracts,
-        name: "Manage My Contracts",
-        isLeaf: false,
-        children: [
-          {
-            key: PermissionKeys.ContractsAppManageContractsRead,
-            name: "Read My Contracts",
-            isLeaf: true,
-          },
-          {
-            key: PermissionKeys.ContractsAppManageContractsCreate,
-            name: "Create Contract",
-            isLeaf: true,
-          },
-          {
-            key: PermissionKeys.ContractsAppManageContractsUpdateDetails,
-            name: "Update Contract",
-            isLeaf: true,
-          },
-          {
-            key: PermissionKeys.ContractsAppManageContractsDelete,
-            name: "Delete Contract",
-            isLeaf: true,
-          },
-        ],
-      },
-      {
-        key: PermissionKeys.ContractsAppManageContractTemplates,
-        name: "Manage Contract Templates",
-        isLeaf: false,
-        children: [
-          {
-            key: PermissionKeys.ContractsAppManageContractTemplatesRead,
-            name: "Read Contract Templates",
-            isLeaf: true,
-          },
-          {
-            key: PermissionKeys.ContractsAppManageContractTemplatesCreate,
-            name: "Create Contract Template",
-            isLeaf: true,
-          },
-          {
-            key: PermissionKeys.ContractsAppManageContractTemplatesUpdateDetails,
-            name: "Update Contract Template",
-            isLeaf: true,
-          },
-          {
-            key: PermissionKeys.ContractsAppManageContractTemplatesDelete,
-            name: "Delete Contract Template",
-            isLeaf: true,
-          },
-        ],
-      },
-    ],
+    key: PermissionKeys.StrategyApp,
+    name: "Strategy App",
+    isLeaf: true,
   },
 ];
 
