@@ -1,7 +1,7 @@
-export type Option<T> = {
+export interface Option<T> {
   value: T;
   label: string;
-};
+}
 
 export type Filter<K> = {
   name: string;

@@ -14,7 +14,7 @@ export default function Tooltip({
   text,
   children,
   placement = "top",
-  containerClassName = "bg-secondary",
+  containerClassName = "bg-primary",
   textClassName = "text-white",
 }: Props) {
   const [visible, setVisible] = useState(false);

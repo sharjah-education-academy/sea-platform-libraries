@@ -22,6 +22,17 @@ export enum PermissionKeys {
   ManageApplicationUpdateDetails = "manage-applications-update-details",
   ManageApplicationDelete = "manage-applications-delete",
 
+  ManageOrganization = "manage-organization",
+  ManageOrganizationCreate = "manage-organization-create",
+  ManageOrganizationRead = "manage-organization-read",
+  ManageOrganizationUpdateDetails = "manage-organization-update-details",
+  ManageOrganizationDelete = "manage-organization-delete",
+  ManageDepartment = "manage-department",
+  ManageDepartmentCreate = "manage-department-create",
+  ManageDepartmentRead = "manage-department-read",
+  ManageDepartmentUpdateDetails = "manage-department-update-details",
+  ManageDepartmentDelete = "manage-department-delete",
+
   // User
   ContractsApp = "contracts-app",
   ContractsAppManageContracts = "contracts-app-manage-contracts",
@@ -101,6 +112,60 @@ export const USER_PERMISSIONS: IPermission[] = [
 ];
 
 export const ADMIN_PERMISSIONS: IPermission[] = [
+  {
+    key: PermissionKeys.ManageOrganization,
+    name: "Manage Organization",
+    isLeaf: false,
+    children: [
+      {
+        key: PermissionKeys.ManageOrganizationCreate,
+        name: "Create Organization",
+        isLeaf: true,
+      },
+      {
+        key: PermissionKeys.ManageOrganizationRead,
+        name: "Read Organization",
+        isLeaf: true,
+      },
+      {
+        key: PermissionKeys.ManageOrganizationUpdateDetails,
+        name: "Update Organization Details",
+        isLeaf: true,
+      },
+      {
+        key: PermissionKeys.ManageOrganizationDelete,
+        name: "Delete Organization",
+        isLeaf: true,
+      },
+      {
+        key: PermissionKeys.ManageDepartment,
+        name: "Manage Department",
+        isLeaf: false,
+        children: [
+          {
+            key: PermissionKeys.ManageDepartmentCreate,
+            name: "Create Department",
+            isLeaf: true,
+          },
+          {
+            key: PermissionKeys.ManageDepartmentRead,
+            name: "Read Department",
+            isLeaf: true,
+          },
+          {
+            key: PermissionKeys.ManageDepartmentUpdateDetails,
+            name: "Update Department Details",
+            isLeaf: true,
+          },
+          {
+            key: PermissionKeys.ManageDepartmentDelete,
+            name: "Delete Department",
+            isLeaf: true,
+          },
+        ],
+      },
+    ],
+  },
   {
     key: PermissionKeys.ManageAccounts,
     name: "Manage Account",

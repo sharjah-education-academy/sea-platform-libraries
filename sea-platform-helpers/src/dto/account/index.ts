@@ -1,5 +1,7 @@
 import { AccountTypes } from "../../constants/account";
+import { IDepartment } from "../department";
 import { IArrayDataResponse } from "../global";
+import { IOrganization } from "../organization";
 import { IRoleShort } from "../role";
 
 export interface IAccount {
@@ -11,6 +13,8 @@ export interface IAccount {
   isLocked: boolean;
   type: AccountTypes;
   roles: IRoleShort[];
+  organization: IOrganization | undefined;
+  department: IDepartment | undefined;
 }
 
 export interface IAccountArrayDataResponse

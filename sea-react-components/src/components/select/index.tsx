@@ -90,41 +90,47 @@ export default function Select<T>({
   };
 
   return (
-    <Menu
-      menuButton={
-        <div
-          className={clsx(
-            "text-text flex items-center justify-between gap-2 bg-white px-3 py-2 rounded-xl border-0.5 hover:border-primary",
-            errorMessage
-              ? "border-error"
-              : isFocused
-              ? "border-primary"
-              : "border-gray-200",
-            buttonClassName
-          )}
-        >
-          {renderSelectContent()}
-          <Icon icon="iconamoon:arrow-down-2" />
-        </div>
-      }
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
-      children={
-        <div className="flex flex-col gap-2 p-1 min-w-36">
-          {options.map((o, i) => (
-            <MenuItem
-              key={`${name}-option-${i}`}
-              selected={selectedOptions.includes(o)}
-              onClick={() => handleClickOption(o)}
-              children={
-                <p className="flex items-center gap-2 px-4 py-2 text-left">
-                  {o.label}
-                </p>
-              }
-            />
-          ))}
-        </div>
-      }
-    />
+    <div className="flex flex-col gap-1">
+      <Menu
+        menuButton={
+          <div
+            className={clsx(
+              "text-text flex items-center justify-between gap-2 bg-white px-3 py-2 rounded-xl border-0.5 hover:border-primary",
+              errorMessage
+                ? "border-error"
+                : isFocused
+                ? "border-primary"
+                : "border-gray-200",
+              buttonClassName
+            )}
+          >
+            {renderSelectContent()}
+            <Icon icon="iconamoon:arrow-down-2" />
+          </div>
+        }
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        children={
+          <div className="flex flex-col gap-2 p-1 min-w-36">
+            {options.map((o, i) => (
+              <MenuItem
+                key={`${name}-option-${i}`}
+                selected={selectedOptions.includes(o)}
+                onClick={() => handleClickOption(o)}
+                children={
+                  <p className="flex items-center gap-2 px-4 py-2 text-left">
+                    {o.label}
+                  </p>
+                }
+              />
+            ))}
+          </div>
+        }
+      />
+
+      {errorMessage && (
+        <p className="pl-1 text-sm text-error">{errorMessage}</p>
+      )}
+    </div>
   );
 }

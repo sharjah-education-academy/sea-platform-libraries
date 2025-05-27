@@ -69,6 +69,8 @@ export {
   Props as CountDownProps,
 } from "./components/count-down";
 
+export * as ListItemsOptions from "./hooks/list-items-hook/types";
+
 export {
   default as ListItem,
   Props as ListItemProps,
@@ -78,6 +80,7 @@ export {
   default as Table,
   Props as TableProps,
   TableColumn,
+  DEFAULT_TABLE_ROWS_PER_PAGE_OPTIONS,
 } from "./components/table";
 
 export { default as Tab, Props as TabProps } from "./components/tab";

@@ -4,3 +4,5 @@ export * as File from "./file";
 export * as Permission from "./permission";
 export * as Request from "./request";
 export * as Role from "./role";
+export * as Organization from "./organization";
+export * as Department from "./department";
