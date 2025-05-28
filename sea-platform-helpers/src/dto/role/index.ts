@@ -1,4 +1,4 @@
-import { AccountTypes } from "../../constants/account";
+import { IApplication } from "../application";
 import { IArrayDataResponse } from "../global";
 
 export interface IRolePermission {
@@ -13,7 +13,7 @@ export interface IRoleShort {
   id: string;
   name: string;
   description: string;
-  type: AccountTypes;
+  application: IApplication;
   color: string;
 }
 

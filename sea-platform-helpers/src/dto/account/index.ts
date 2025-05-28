@@ -1,4 +1,3 @@
-import { AccountTypes } from "../../constants/account";
 import { IDepartment } from "../department";
 import { IArrayDataResponse } from "../global";
 import { IOrganization } from "../organization";
@@ -11,7 +10,6 @@ export interface IAccount {
   phoneNumber: string;
   birthDate: string;
   isLocked: boolean;
-  type: AccountTypes;
   roles: IRoleShort[];
   organization: IOrganization | undefined;
   department: IDepartment | undefined;
