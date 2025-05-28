@@ -21,7 +21,6 @@ export enum PermissionKeys {
   ManageApplication = "manage-applications",
   ManageApplicationRead = "manage-applications-read",
   ManageApplicationUpdateDetails = "manage-applications-update-details",
-  ManageApplicationDelete = "manage-applications-delete",
   ManageOrganization = "manage-organization",
   ManageOrganizationCreate = "manage-organization-create",
   ManageOrganizationRead = "manage-organization-read",
@@ -85,41 +84,37 @@ export const PERMISSIONS: IPermission[] = [
             name: "Delete Organization",
             isLeaf: true,
           },
+        ],
+      },
+      {
+        applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+        key: PermissionKeys.ManageDepartment,
+        name: "Manage Department",
+        isLeaf: false,
+        children: [
           {
             applicationKey: ApplicationKeys.PlatformAdministrationApplication,
-            key: PermissionKeys.ManageDepartment,
-            name: "Manage Department",
-            isLeaf: false,
-            children: [
-              {
-                applicationKey:
-                  ApplicationKeys.PlatformAdministrationApplication,
-                key: PermissionKeys.ManageDepartmentCreate,
-                name: "Create Department",
-                isLeaf: true,
-              },
-              {
-                applicationKey:
-                  ApplicationKeys.PlatformAdministrationApplication,
-                key: PermissionKeys.ManageDepartmentRead,
-                name: "Read Department",
-                isLeaf: true,
-              },
-              {
-                applicationKey:
-                  ApplicationKeys.PlatformAdministrationApplication,
-                key: PermissionKeys.ManageDepartmentUpdateDetails,
-                name: "Update Department Details",
-                isLeaf: true,
-              },
-              {
-                applicationKey:
-                  ApplicationKeys.PlatformAdministrationApplication,
-                key: PermissionKeys.ManageDepartmentDelete,
-                name: "Delete Department",
-                isLeaf: true,
-              },
-            ],
+            key: PermissionKeys.ManageDepartmentCreate,
+            name: "Create Department",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+            key: PermissionKeys.ManageDepartmentRead,
+            name: "Read Department",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+            key: PermissionKeys.ManageDepartmentUpdateDetails,
+            name: "Update Department Details",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+            key: PermissionKeys.ManageDepartmentDelete,
+            name: "Delete Department",
+            isLeaf: true,
           },
         ],
       },
@@ -231,12 +226,6 @@ export const PERMISSIONS: IPermission[] = [
             applicationKey: ApplicationKeys.PlatformAdministrationApplication,
             key: PermissionKeys.ManageApplicationUpdateDetails,
             name: "Update Application Details",
-            isLeaf: true,
-          },
-          {
-            applicationKey: ApplicationKeys.PlatformAdministrationApplication,
-            key: PermissionKeys.ManageApplicationDelete,
-            name: "Delete Application",
             isLeaf: true,
           },
         ],

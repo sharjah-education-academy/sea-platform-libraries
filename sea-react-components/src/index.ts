@@ -146,3 +146,13 @@ export {
   default as TextEditor,
   Props as TextEditorProps,
 } from "./components/text-editor";
+
+export {
+  default as WithAuthorization,
+  Props as WithAuthorizationProps,
+} from "./HOC/with-authorization";
+
+export {
+  default as CanAccessApplication,
+  Props as CanAccessApplicationProps,
+} from "./HOC/can-access-application";

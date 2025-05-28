@@ -1,3 +1,5 @@
+import { ApplicationKeys } from "../../constants/application";
+import { PermissionKeys } from "../../constants/permission";
 import { IDepartment } from "../department";
 import { IArrayDataResponse } from "../global";
 import { IOrganization } from "../organization";
@@ -13,6 +15,8 @@ export interface IAccount {
   roles: IRoleShort[];
   organization: IOrganization | undefined;
   department: IDepartment | undefined;
+  permissionKeys: PermissionKeys[] | undefined;
+  applicationKeys: ApplicationKeys[] | undefined;
 }
 
 export interface IAccountArrayDataResponse

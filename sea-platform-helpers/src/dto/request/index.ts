@@ -1,3 +1,4 @@
+import { ApplicationKeys } from "../../constants/application";
 import { PermissionKeys } from "../../constants/permission";
 
 export class AuthorizedRequest {
@@ -7,6 +8,7 @@ export class AuthorizedRequest {
         type: string;
         account: object | undefined;
         permissionKeys: PermissionKeys[];
+        applicationKeys: ApplicationKeys[];
       }
     | undefined;
 }
