@@ -19,3 +19,8 @@ export interface IAccountArrayDataResponse
   extends IArrayDataResponse<IAccount> {
   data: IAccount[];
 }
+
+export interface ILoginResponse {
+  accessToken: string;
+  account: IAccount;
+}
