@@ -33,7 +33,7 @@ export default function Carousel({
 }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [carouselHeight, setCarouselHeight] = useState<number | null>(null);
-  const intervalRef = useRef<number | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   if (itemsPerSlide > items.length) itemsPerSlide = items.length;
