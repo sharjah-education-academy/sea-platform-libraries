@@ -1,5 +1,5 @@
 "use client";
-import { Icon } from "@iconify/react/dist/iconify.js";
+import Icon from "../icon";
 import clsx from "clsx";
 import React, { useState } from "react";
 

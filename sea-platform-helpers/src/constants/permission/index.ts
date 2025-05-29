@@ -1,6 +1,8 @@
 import { IPermission } from "../../dto/permission";
 import { ApplicationKeys } from "../application";
 
+export type ValidationStrategy = "all" | "some" | "one";
+
 export enum PermissionKeys {
   // Admin
   PlatformAdministration = "platform-administration",

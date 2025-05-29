@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { CONSTANTS } from "sea-platform-helpers/dist";
+import { CONSTANTS } from "sea-platform-helpers";
 import NotAuthorized from "../../components/not-authorized";
 
 type ValidationStrategy = "all" | "some" | "one";

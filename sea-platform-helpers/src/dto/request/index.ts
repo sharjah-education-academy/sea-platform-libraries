@@ -5,7 +5,6 @@ export class AuthorizedRequest {
   context:
     | {
         id: string;
-        type: string;
         account: object | undefined;
         permissionKeys: PermissionKeys[];
         applicationKeys: ApplicationKeys[];
