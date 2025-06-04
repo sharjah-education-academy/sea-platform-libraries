@@ -3,3 +3,5 @@ export * as Server from "./server";
 export * as Account from "./account";
 export * as Application from "./application";
 export * as OTP from "./otp";
+export * as KPI from "./kpi";
+export * as Project from "./project";
