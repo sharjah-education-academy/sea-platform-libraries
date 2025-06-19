@@ -5,3 +5,5 @@ export * as Application from "./application";
 export * as OTP from "./otp";
 export * as KPI from "./kpi";
 export * as Project from "./project";
+export * as Task from "./task";
+export * as StrategySocket from "./strategy-socket";

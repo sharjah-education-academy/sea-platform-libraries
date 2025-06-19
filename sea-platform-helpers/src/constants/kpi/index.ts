@@ -3,3 +3,13 @@ export enum KPITrackingMethods {
   Project = "Project",
   Task = "Task",
 }
+
+export enum KPIReportingFrequencies {
+  Yearly = "Yearly",
+  Quarterly = "Quarterly",
+}
+
+export enum KPIReportingTypes {
+  Boolean = "Boolean",
+  Number = "Number",
+}

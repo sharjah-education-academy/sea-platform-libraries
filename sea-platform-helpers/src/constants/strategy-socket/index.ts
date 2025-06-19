@@ -1,0 +1,22 @@
+export const Events = {
+  Send: {
+    UserConnected: "user-connected",
+    UserDisconnected: "user-disconnected",
+    ProjectCreated: "project-created",
+    ProjectUpdated: "project-updated",
+    ProjectDeleted: "project-deleted",
+    MilestoneCreated: "milestone-created",
+    MilestoneUpdated: "milestone-updated",
+    MilestoneDeleted: "milestone-deleted",
+    SectionCreated: "section-created",
+    SectionUpdated: "section-updated",
+    SectionDeleted: "section-deleted",
+    TaskCreated: "task-created",
+    TaskUpdated: "task-updated",
+    TaskDeleted: "task-deleted",
+    ProjectMemberAdded: "project-member-added",
+    ProjectMemberUpdated: "project-member-updated",
+    ProjectMemberRemoved: "project-member-removed",
+  },
+  Receive: {},
+};

@@ -4,7 +4,7 @@ import { ApplicationKeys } from "../application";
 export type ValidationStrategy = "all" | "some" | "one";
 
 export enum PermissionKeys {
-  // Admin
+  // Administration Application
   PlatformAdministration = "platform-administration",
   ManageAccounts = "manage-accounts",
   ManageAccountsRead = "manage-accounts-read",
@@ -34,7 +34,7 @@ export enum PermissionKeys {
   ManageDepartmentUpdateDetails = "manage-department-update-details",
   ManageDepartmentDelete = "manage-department-delete",
 
-  // User
+  // Strategy Application
   StrategyApp = "strategy-app",
   ManageGoals = "manage-goals",
   ManageGoalsCreate = "manage-goals-create",
@@ -46,6 +46,21 @@ export enum PermissionKeys {
   ManageInitiativesRead = "manage-initiatives-read",
   ManageInitiativesUpdateDetails = "manage-initiatives-update-details",
   ManageInitiativesDelete = "manage-initiatives-delete",
+  ManageKPIs = "manage-kpis",
+  ManageKPIsCreate = "manage-kpis-create",
+  ManageKPIsRead = "manage-kpis-read",
+  ManageKPIsUpdateDetails = "manage-kpis-update-details",
+  ManageKPIsDelete = "manage-kpis-delete",
+  ManageKPIsAddUpdateEvidence = "manage-kpis-add-update-evidence",
+  ManageKPIsAddUpdateProgress = "manage-kpis-add-update-progress",
+  ManageProjects = "manage-projects",
+  ManageProjectsCreate = "manage-projects-create",
+  ManageProjectsRead = "manage-projects-read",
+  ManageProjectsUpdateDetails = "manage-projects-update-details",
+  ManageProjectsDelete = "manage-projects-delete",
+  ManageProjectMembers = "manage-project-members",
+  ManageProjectMilestones = "manage-project-milestones",
+  ManageProjectSections = "manage-project-sections",
 }
 
 export const PERMISSIONS: IPermission[] = [
@@ -302,6 +317,102 @@ export const PERMISSIONS: IPermission[] = [
             applicationKey: ApplicationKeys.StrategyApplication,
             key: PermissionKeys.ManageInitiativesDelete,
             name: "Delete Initiative",
+            isLeaf: true,
+          },
+        ],
+      },
+
+      {
+        applicationKey: ApplicationKeys.StrategyApplication,
+        key: PermissionKeys.ManageKPIs,
+        name: "Manage KPIs",
+        isLeaf: false,
+        children: [
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageKPIsCreate,
+            name: "Create KPI",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageKPIsRead,
+            name: "Read KPIs",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageKPIsUpdateDetails,
+            name: "Update KPI Details",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageKPIsDelete,
+            name: "Delete KPI",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageKPIsAddUpdateEvidence,
+            name: "Add/Update KPI Evidence",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageKPIsAddUpdateProgress,
+            name: "Add/Update KPI Progress",
+            isLeaf: true,
+          },
+        ],
+      },
+
+      {
+        applicationKey: ApplicationKeys.StrategyApplication,
+        key: PermissionKeys.ManageProjects,
+        name: "Manage Projects",
+        isLeaf: false,
+        children: [
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageProjectsCreate,
+            name: "Create Project",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageProjectsRead,
+            name: "Read Projects",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageProjectsUpdateDetails,
+            name: "Update Project Details",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageProjectsDelete,
+            name: "Delete Project",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageProjectMembers,
+            name: "Manage Project Members",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageProjectMilestones,
+            name: "Manage Project Milestones",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.StrategyApplication,
+            key: PermissionKeys.ManageProjectSections,
+            name: "Manage Project Sections",
             isLeaf: true,
           },
         ],
