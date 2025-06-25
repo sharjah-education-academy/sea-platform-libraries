@@ -28,7 +28,7 @@ export default function TreeCheckboxItem<K>({
           onChange={(checked) => handleCheckboxChange(checked)}
           disabled={readonly}
         />
-        <p>{node.label}</p>
+        <div>{node.label}</div>
       </div>
 
       {node.children &&

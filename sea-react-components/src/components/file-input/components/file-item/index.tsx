@@ -23,7 +23,7 @@ export default function FileItem({
               {file.name}
             </p>
             <p className="text-sm text-info">
-              {Utils.Number.default(file.size).format("0.0 b")}
+              {Utils.Number.numeralUtils(file.size).format("0.0 b")}
             </p>
           </div>
         </div>

@@ -61,6 +61,17 @@ export enum PermissionKeys {
   ManageProjectMembers = "manage-project-members",
   ManageProjectMilestones = "manage-project-milestones",
   ManageProjectSections = "manage-project-sections",
+
+  // Public Calendar
+  PublicCalendarApp = "public-calendar-app",
+  PublicCalendarManagement = "public-calendar-management",
+  ManageCalendar = "manage-calendar",
+  ManageCalendarCreate = "manage-calendar-create",
+  ManageCalendarRead = "manage-calendar-read",
+  ManageCalendarUpdateDetails = "manage-calendar-update-details",
+  ManageCalendarDelete = "manage-calendar-delete",
+  ManageEvent = "manage-event",
+  ViewPublicCalendar = "view-public-calendar",
 }
 
 export const PERMISSIONS: IPermission[] = [
@@ -416,6 +427,67 @@ export const PERMISSIONS: IPermission[] = [
             isLeaf: true,
           },
         ],
+      },
+    ],
+  },
+
+  {
+    applicationKey: ApplicationKeys.PublicCalendarApplication,
+    key: PermissionKeys.PublicCalendarApp,
+    name: "Public Calendar",
+    isLeaf: false,
+    children: [
+      {
+        applicationKey: ApplicationKeys.PublicCalendarApplication,
+        key: PermissionKeys.PublicCalendarManagement,
+        name: "Management",
+        isLeaf: false,
+        children: [
+          {
+            applicationKey: ApplicationKeys.PublicCalendarApplication,
+            isLeaf: false,
+            key: PermissionKeys.ManageCalendar,
+            name: "Manage Calendar",
+            children: [
+              {
+                applicationKey: ApplicationKeys.PublicCalendarApplication,
+                isLeaf: true,
+                key: PermissionKeys.ManageCalendarCreate,
+                name: "Create Calendar",
+              },
+              {
+                applicationKey: ApplicationKeys.PublicCalendarApplication,
+                isLeaf: true,
+                key: PermissionKeys.ManageCalendarRead,
+                name: "Read Calendars",
+              },
+              {
+                applicationKey: ApplicationKeys.PublicCalendarApplication,
+                isLeaf: true,
+                key: PermissionKeys.ManageCalendarUpdateDetails,
+                name: "Update Calendar",
+              },
+              {
+                applicationKey: ApplicationKeys.PublicCalendarApplication,
+                isLeaf: true,
+                key: PermissionKeys.ManageCalendarDelete,
+                name: "Delete Calendar",
+              },
+            ],
+          },
+          {
+            applicationKey: ApplicationKeys.PublicCalendarApplication,
+            isLeaf: true,
+            key: PermissionKeys.ManageEvent,
+            name: "Manage Event",
+          },
+        ],
+      },
+      {
+        applicationKey: ApplicationKeys.PublicCalendarApplication,
+        key: PermissionKeys.ViewPublicCalendar,
+        name: "View Public Calendar",
+        isLeaf: true,
       },
     ],
   },

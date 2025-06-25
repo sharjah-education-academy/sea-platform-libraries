@@ -37,19 +37,19 @@ export default function Drawer({
       {/* Drawer */}
       <div
         className={clsx(
-          "fixed bg-white shadow-lg z-50 transition-transform duration-300 py-7 px-2",
+          "fixed bg-white shadow-lg z-50 transition-transform duration-300 py-7 px-2 max-h-screen overflow-y-auto",
           {
             "top-0 left-0 w-full h-auto transform -translate-y-full":
               placement === "top" && !isOpen,
             "top-0 left-0 w-full h-auto translate-y-0":
               placement === "top" && isOpen,
-            "top-0 right-0 h-full transform translate-x-full w-[85%] md:w-[40%]":
+            "top-0 right-0 max-h-screen h-full transform translate-x-full w-[85%] md:w-[40%]":
               placement === "right" && !isOpen,
-            "top-0 right-0 h-full translate-x-0 w-[85%] md:w-[40%]":
+            "top-0 right-0 max-h-screen h-full translate-x-0 w-[85%] md:w-[40%]":
               placement === "right" && isOpen,
-            "top-0 left-0 h-full transform -translate-x-full w-[85%] md:w-[40%]":
+            "top-0 left-0 max-h-screen h-full transform -translate-x-full w-[85%] md:w-[40%]":
               placement === "left" && !isOpen,
-            "top-0 left-0 h-full translate-x-0 w-[85%] md:w-[40%]":
+            "top-0 left-0 max-h-screen h-full translate-x-0 w-[85%] md:w-[40%]":
               placement === "left" && isOpen,
             "bottom-0 left-0 w-full h-auto transform translate-y-full":
               placement === "bottom" && !isOpen,

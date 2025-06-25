@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 import TreeCheckboxItem from "./components/tree-checkbox-item";
 import { makeTreeNode } from "./utils";
@@ -11,7 +11,7 @@ export type CheckedValues = "all" | "some" | "none";
 
 export type TreeNode<K> = {
   key: K;
-  label: string;
+  label: string | ReactNode;
   isLeaf: boolean;
   checked: CheckedValues;
   children?: TreeNode<K>[];

@@ -16,10 +16,10 @@ export type ModalPosition =
 export type ModalSize = "sm" | "md" | "lg" | "xl";
 
 const sizeClasses: Record<ModalSize, string> = {
-  sm: "w-1/2 md:w-1/4 h-auto",
-  md: "w-1/2 md:w-1/3 h-auto",
-  lg: "w-5/6 md:w-1/2 h-auto",
-  xl: "w-5/6 md:w-3/4 h-auto",
+  sm: "w-1/2 md:w-1/4",
+  md: "w-1/2 md:w-1/3",
+  lg: "w-5/6 md:w-1/2",
+  xl: "w-5/6 md:w-3/4",
 };
 
 const positionClasses: Record<ModalPosition, string> = {
@@ -40,26 +40,31 @@ export type Props = {
   children: ReactNode;
   size?: ModalSize;
   position?: ModalPosition;
+  overlayPercentage?: number;
 } & React.HTMLAttributes<HTMLDivElement>;
+
 export default function Modal({
   isOpen,
   onClose,
   children,
   position = "center",
   size = "md",
+  overlayPercentage = 50,
   className,
   onClick,
   ...props
 }: Props) {
   if (!isOpen) return null;
+
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center"
+      className="fixed inset-0 bg-black z-50 overflow-auto"
+      style={{ backgroundColor: `rgba(0,0,0,0.${overlayPercentage})` }}
       onClick={onClose}
     >
       <div
         className={clsx(
-          "absolute bg-white rounded-lg shadow-lg p-6",
+          "absolute bg-white rounded-lg shadow-lg p-6 max-h-[90vh] overflow-y-auto",
           sizeClasses[size],
           positionClasses[position],
           className

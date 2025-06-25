@@ -1,8 +1,9 @@
 import moment from "moment";
-import momentTZ from "moment-timezone";
+import * as momentTZ from "moment-timezone";
+export { momentTZ };
 
 export const formatDate = (data: Date | string, format = "YYYY-MM-DD") => {
-  return moment.utc(data).format(format).toString();
+  return moment(data).format(format).toString();
 };
 
 export const formatDateAsLabel = (date: string | Date) => {
@@ -33,5 +34,23 @@ export const getDaysCountTillNow = (pastDate: string) =>
 
 export const getAge = (birthdate: string) =>
   moment().diff(moment(birthdate), "years");
+
+export const getStartOfDay = (date?: Date | string): Date => {
+  return moment(date).startOf("day").toDate();
+};
+
+export const getEndOfDay = (date?: Date | string): Date => {
+  return moment(date).endOf("day").toDate();
+};
+
+export const getNextPeriod = (
+  date: string | Date,
+  period: "day" | "week" | "month"
+) => moment(date).add(1, period).toDate();
+
+export const getPreviousPeriod = (
+  date: string | Date,
+  period: "day" | "week" | "month"
+) => moment(date).subtract(1, period).toDate();
 
 export default moment;

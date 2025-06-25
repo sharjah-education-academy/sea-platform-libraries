@@ -148,6 +148,28 @@ export {
 } from "./components/text-editor";
 
 export {
+  default as Calendar,
+  Props as CalendarProps,
+} from "./components/calendar";
+
+export {
+  default as MonthCalendar,
+  Props as MonthCalendarProps,
+} from "./components/month-calendar";
+
+export {
+  default as WeekCalendar,
+  Props as WeekCalendarProps,
+} from "./components/week-calendar";
+
+export {
+  default as DayCalendar,
+  Props as DayCalendarProps,
+} from "./components/day-calendar";
+
+export * from "./components/accordion";
+
+export {
   default as WithAuthorization,
   Props as WithAuthorizationProps,
 } from "./HOC/with-authorization";
