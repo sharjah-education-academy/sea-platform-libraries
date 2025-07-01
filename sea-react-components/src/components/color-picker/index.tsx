@@ -7,34 +7,42 @@ export type Props = {
   setColor: (newColor: string) => void;
   showDisplay?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
+
 export default function ColorPicker({
   color,
   setColor,
   showDisplay = true,
+  className = "",
+  style,
   ...props
 }: Props) {
   return (
-    <div className="relative flex items-center rounded-lg">
+    <label
+      className={`relative inline-block overflow-hidden ${className}`}
+      style={style}
+    >
+      {/* Visible color swatch or display */}
       {showDisplay && (
         <div
-          className="w-full h-10 rounded-lg flex items-center justify-center"
+          className="w-full h-full flex items-center justify-center"
           style={{
             backgroundColor: color,
             color: isColorLight(color) ? "#000000" : "#FFFFFF",
+            borderRadius: "inherit",
           }}
         >
-          <p>{color}</p>
+          <p className="text-xs">{color}</p>
         </div>
       )}
 
       {/* Hidden color input */}
       <input
         type="color"
-        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        className="absolute inset-0 w-full h-full opacity-0 appearance-none cursor-pointer"
         value={color}
         onChange={(e) => setColor(e.target.value)}
         {...props}
       />
-    </div>
+    </label>
   );
 }

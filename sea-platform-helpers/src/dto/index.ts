@@ -6,5 +6,6 @@ export * as Request from "./request";
 export * as Role from "./role";
 export * as Organization from "./organization";
 export * as Department from "./department";
+export * as Calendar from "./calendar";
 export * as EventCategory from "./event-category";
 export * as Event from "./event";

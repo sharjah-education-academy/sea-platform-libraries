@@ -77,7 +77,7 @@ export default function Modal({
       >
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 text-secondary-dark"
+          className="absolute top-2 right-2 text-primary"
         >
           <Icon
             icon="line-md:close-small"

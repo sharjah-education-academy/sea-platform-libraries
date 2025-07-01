@@ -1,4 +1,13 @@
 import { IEventCategory } from "../event-category";
+import { IFile } from "../file";
+import { IArrayDataResponse } from "../global";
+
+export enum ShownStatuses {
+  All = "All",
+  Pending = "Pending",
+  Shown = "Shown",
+  Hidden = "Hidden",
+}
 
 export interface IEventBody {
   contentType: string;
@@ -38,4 +47,10 @@ export interface IEvent {
   category?: IEventCategory;
   isShown?: boolean;
   color: string;
+  description?: string;
+  attachmentFiles: IFile[];
+}
+
+export interface IEventArrayDataResponse extends IArrayDataResponse<IEvent> {
+  data: IEvent[];
 }

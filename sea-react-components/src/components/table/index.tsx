@@ -6,12 +6,10 @@ import Icon from "../icon";
 
 import { BulkActionFeature } from "../../hooks/list-items-hook/types";
 
-export const DEFAULT_TABLE_ROWS_PER_PAGE_OPTIONS = [5, 10, 20, 50].map(
-  (item) => ({
-    label: item.toString(),
-    value: item,
-  })
-);
+export const DEFAULT_TABLE_ROWS_PER_PAGE_OPTIONS = [10, 20, 50].map((item) => ({
+  label: item.toString(),
+  value: item,
+}));
 
 export type TableColumn<T> = {
   key: string;

@@ -143,6 +143,11 @@ export {
 } from "./components/file-input";
 
 export {
+  default as FileItem,
+  Props as FileItemProps,
+} from "./components/file-input/components/file-item";
+
+export {
   default as TextEditor,
   Props as TextEditorProps,
 } from "./components/text-editor";
