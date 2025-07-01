@@ -40,6 +40,8 @@ export type Props<T> = {
   onDelete: (file: FileState) => Promise<{ id: string } & T>;
   onUploadSuccess?: (file: T) => void;
   onDeleteSuccess?: (file: T) => void;
+  errorMessage?: string;
+
   children: (props: {
     inputRef: React.RefObject<HTMLInputElement>;
     inputProps: {
@@ -55,6 +57,7 @@ export type Props<T> = {
     handleDeleteFile: (file: FileState) => void;
     handleUploadFile: (file: FileState) => void;
     setFiles: React.Dispatch<React.SetStateAction<FileState[]>>;
+    errorMessage?: string;
   }) => React.ReactNode;
 };
 
@@ -71,6 +74,7 @@ export default function FileInput<T>({
   onUploadSuccess,
   onDeleteSuccess,
   children,
+  errorMessage,
 }: Props<T>) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -110,21 +114,45 @@ export default function FileInput<T>({
         f.id === file.id ? { ...f, status: UploadStatuses.Uploading } : f
       )
     );
+
     try {
       const result = await onUpload(file);
-      onUploadSuccess?.(result);
-      setFiles((prev) =>
-        prev.map((f) =>
-          f.id === file.id
-            ? {
-                ...f,
-                serverId: result.id,
-                status: UploadStatuses.Uploaded,
-                progress: 100,
-              }
-            : f
-        )
-      );
+      onUploadSuccess?.(result); // This allows parent to set `iconFileId`
+
+      // For single-file mode: remove old uploaded file if any
+      if (!multiple) {
+        const uploadedFile = {
+          ...file,
+          serverId: result.id,
+          status: UploadStatuses.Uploaded,
+          progress: 100,
+        };
+
+        const oldUploaded = files.find(
+          (f) => f.status === UploadStatuses.Uploaded
+        );
+
+        // Delete old uploaded file
+        if (oldUploaded && oldUploaded.serverId) {
+          await onDelete(oldUploaded);
+          onDeleteSuccess?.(oldUploaded as any);
+        }
+
+        setFiles([uploadedFile]); // Keep only the new one
+      } else {
+        setFiles((prev) =>
+          prev.map((f) =>
+            f.id === file.id
+              ? {
+                  ...f,
+                  serverId: result.id,
+                  status: UploadStatuses.Uploaded,
+                  progress: 100,
+                }
+              : f
+          )
+        );
+      }
     } catch {
       setFiles((prev) =>
         prev.map((f) =>
@@ -146,9 +174,7 @@ export default function FileInput<T>({
     if (initialFiles && initialFiles.length > 0) {
       setFiles(initialFiles);
     }
-    // only run once on mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [initialFiles]);
 
   return (
     <>
@@ -167,6 +193,7 @@ export default function FileInput<T>({
         handleDeleteFile,
         handleUploadFile,
         setFiles,
+        errorMessage,
       })}
     </>
   );

@@ -86,7 +86,7 @@ export default function Alert({
       >
         {showIcon && <Icon icon={icons[type]} className="h-5 w-5" />}
 
-        <p className="flex-1">{message}</p>
+        <p className="flex-1 text-sm md:text-base">{message}</p>
 
         {closeButton && (
           <button
