@@ -71,6 +71,8 @@ export enum PermissionKeys {
   ManageCalendarUpdateDetails = "manage-calendar-update-details",
   ManageCalendarDelete = "manage-calendar-delete",
   ManageEvent = "manage-event",
+  ManageEventRead = "manage-event-read",
+  ManageEventUpdateDetails = "manage-event-update-details",
   ViewPublicCalendar = "view-public-calendar",
 }
 
@@ -477,9 +479,23 @@ export const PERMISSIONS: IPermission[] = [
           },
           {
             applicationKey: ApplicationKeys.PublicCalendarApplication,
-            isLeaf: true,
+            isLeaf: false,
             key: PermissionKeys.ManageEvent,
             name: "Manage Event",
+            children: [
+              {
+                applicationKey: ApplicationKeys.PublicCalendarApplication,
+                isLeaf: true,
+                key: PermissionKeys.ManageEventRead,
+                name: "Read Events",
+              },
+              {
+                applicationKey: ApplicationKeys.PublicCalendarApplication,
+                isLeaf: true,
+                key: PermissionKeys.ManageEventUpdateDetails,
+                name: "Update Event",
+              },
+            ],
           },
         ],
       },

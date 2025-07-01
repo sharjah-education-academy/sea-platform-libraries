@@ -1,3 +1,4 @@
+"use client";
 import React, { useMemo, useEffect } from "react";
 import { Utils } from "sea-platform-helpers";
 import Skeleton from "../skeleton";

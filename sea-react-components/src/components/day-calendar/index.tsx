@@ -1,7 +1,7 @@
+"use client";
 import React, { useMemo } from "react";
 import { Utils } from "sea-platform-helpers";
 import Skeleton from "../skeleton";
-import clsx from "clsx";
 const moment = Utils.Moment.default;
 const HOURS = Array.from({ length: 24 }, (_, i) => `${i}:00`);
 

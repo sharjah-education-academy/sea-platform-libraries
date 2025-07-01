@@ -32,7 +32,7 @@ export interface IEventOrganizer {
 export interface IEvent {
   azureEventId: string;
   subject: string;
-  body: IEventBody;
+  body?: IEventBody;
   location: IEventLocation;
   start: string;
   end: string;
