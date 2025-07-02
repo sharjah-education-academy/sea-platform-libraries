@@ -467,6 +467,7 @@ export default function Toolbar({ editor, headingLevels = [1, 2, 3] }: Props) {
             if (item.type === "button")
               return (
                 <Button
+                  type="button"
                   key={`${item.name}-${ii}`}
                   onClick={() => item.onClick()}
                   disabled={item.disabled}
