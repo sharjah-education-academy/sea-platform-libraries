@@ -1,19 +1,7 @@
+import { CONSTANTS } from "../..";
 import { IEventCategory } from "../event-category";
 import { IFile } from "../file";
 import { IArrayDataResponse } from "../global";
-
-export enum ShownStatuses {
-  All = "All",
-  Pending = "Pending",
-  Shown = "Shown",
-  Hidden = "Hidden",
-}
-
-export interface IEventBody {
-  contentType: string;
-  content: string;
-  bodyPreview: string;
-}
 
 export interface IEventLocation {
   displayName: string;
@@ -23,6 +11,7 @@ export interface IEventAttendee {
   name: string;
   email: string;
   responseStatus: string;
+  type: string;
   responseAt: string;
 }
 export interface IEventOrganizer {
@@ -30,9 +19,10 @@ export interface IEventOrganizer {
   email: string;
 }
 export interface IEvent {
+  id: string;
   azureEventId: string;
   subject: string;
-  body?: IEventBody;
+  body?: string;
   location: IEventLocation;
   start: string;
   end: string;
@@ -45,7 +35,7 @@ export interface IEvent {
   attendees: IEventAttendee[];
   organizer: IEventOrganizer;
   category?: IEventCategory;
-  isShown?: boolean;
+  shownStatus?: CONSTANTS.Event.ShownStatuses;
   color: string;
   description?: string;
   attachmentFiles: IFile[];
