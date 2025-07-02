@@ -6,6 +6,7 @@ export interface ICalendar {
   calendarEmail: string;
   color: string;
   enabled: boolean;
+  lastSyncAt: string | null;
 }
 
 export interface ICalendarArrayDataResponse
