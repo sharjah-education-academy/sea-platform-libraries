@@ -1,5 +1,7 @@
 // import "./styles.css";
 
+export * as CONSTANTS from "./constants";
+
 // utils
 export * as ValidationUtils from "./utils/validation";
 export * as JWTUtils from "./utils/jwt";
