@@ -1,7 +1,7 @@
 {
   "name": "sea-react-components",
   "description": "SEA react components library",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc --build && npx postcss src/styles.css -o dist/styles.css && npx postcss src/components/text-editor/style.css -o dist/components/text-editor/style.css",
