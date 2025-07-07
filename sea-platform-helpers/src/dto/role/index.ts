@@ -15,6 +15,8 @@ export interface IRoleShort {
   description: string;
   application: IApplication;
   color: string;
+  isDefault: boolean;
+  isDeletable: boolean;
 }
 
 export interface IRoleArrayDataResponse extends IArrayDataResponse<IRoleShort> {
