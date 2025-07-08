@@ -8,6 +8,7 @@ export * as JWTUtils from "./utils/jwt";
 export * as ColorUtils from "./utils/color";
 export * as AxiosUtils from "./utils/axios";
 export * as FileUtils from "./utils/file";
+export * as CookieUtils from "./utils/cookie";
 
 // components
 export { default as Icon, Props as IconProps } from "./components/icon";
