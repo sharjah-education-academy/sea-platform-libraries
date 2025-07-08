@@ -1,13 +1,19 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
+import { getCookie } from "../cookie";
 
 type AxiosOptions = {
   JWTTokenKey?: string;
   withCredentials?: boolean;
+  storage?: "localStorage" | "cookie";
 };
 
 export const createInstance = (
   baseURL: string,
-  options: AxiosOptions = { withCredentials: true, JWTTokenKey: "JWTToken" }
+  options: AxiosOptions = {
+    withCredentials: true,
+    JWTTokenKey: "JWTToken",
+    storage: "localStorage",
+  }
 ) => {
   const axiosInstance = axios.create({
     baseURL,
@@ -17,7 +23,13 @@ export const createInstance = (
 
   axiosInstance.interceptors.request.use(
     (config) => {
-      const token = localStorage.getItem(options.JWTTokenKey);
+      // const token = localStorage.getItem(options.JWTTokenKey);
+      let token: string | undefined = undefined;
+      if (options.storage === "localStorage") {
+        token = localStorage.getItem(options.JWTTokenKey);
+      } else if (options.storage === "cookie") {
+        token = getCookie(options.JWTTokenKey);
+      }
       config.headers["Authorization"] = `Bearer ${token}`;
       return config;
     },
