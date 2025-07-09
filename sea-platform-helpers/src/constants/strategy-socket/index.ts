@@ -17,6 +17,9 @@ export const Events = {
     ProjectMemberAdded: "project-member-added",
     ProjectMemberUpdated: "project-member-updated",
     ProjectMemberRemoved: "project-member-removed",
+    CommentCreated: "comment-created",
+    CommentUpdated: "comment-updated",
+    CommentDeleted: "comment-deleted",
   },
   Receive: {},
 };
