@@ -17,9 +17,8 @@ export const createInstance = (
 ) => {
   const axiosInstance = axios.create({
     baseURL,
+    withCredentials: options.withCredentials,
   });
-
-  axiosInstance.defaults.withCredentials = options.withCredentials;
 
   axiosInstance.interceptors.request.use(
     (config) => {
