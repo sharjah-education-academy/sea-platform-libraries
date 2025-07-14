@@ -54,3 +54,21 @@ export const getPreviousPeriod = (
 ) => moment(date).subtract(1, period).toDate();
 
 export default moment;
+
+export const isDateInQuarterAndYear = (
+  date: Date,
+  quarter: number,
+  year: number
+): boolean => {
+  if (!date) return false;
+  const d = new Date(date);
+  const q = Math.floor(d.getMonth() / 3) + 1;
+  return d.getFullYear() === year && q === quarter;
+};
+
+export const getEndOfQuarter = (year: number, quarter: number): Date => {
+  const endMonth = quarter * 3 - 1; // Q1: Feb, Q2: May, Q3: Aug, Q4: Nov
+  const date = new Date(year, endMonth + 1, 0); // Last day of that month
+  date.setHours(23, 59, 59, 999); // End of day
+  return date;
+};
