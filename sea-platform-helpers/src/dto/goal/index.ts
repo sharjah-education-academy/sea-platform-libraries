@@ -1,11 +1,15 @@
 import { Organization } from "..";
+import { IArrayDataResponse } from "../global";
 
 export interface IGoal {
-  id?: string;
+  id: string;
   title: string;
   description: string;
-  organizationId?: string;
-  organization?: Organization.IOrganization
+  organization?: Organization.IOrganization;
   startYear: number;
   endYear: number;
+}
+
+export interface IGoalArrayDataResponse extends IArrayDataResponse<IGoal> {
+  data: IGoal[];
 }
