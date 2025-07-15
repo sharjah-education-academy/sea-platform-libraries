@@ -80,6 +80,11 @@ export {
 } from "./components/list-item";
 
 export {
+  default as CardsList,
+  Props as CardsListProps,
+} from "./components/cards-list";
+
+export {
   default as Table,
   Props as TableProps,
   TableColumn,
