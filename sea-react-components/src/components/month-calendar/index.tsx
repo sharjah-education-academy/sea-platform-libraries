@@ -88,55 +88,60 @@ export default function MonthCalendar<T>({
         key={currentMonth.format("YYYY-MM")}
         className="grid grid-cols-7 animate-fade-in"
       >
-        {calendar.flat().map((dayItem, i) => {
-          const day = dayItem.format("YYYY-MM-DD");
-          const dayEvents = events[day] || [];
-          const dayEventsSlice = dayEvents.slice(0, options.eventsInDay);
-          const moreCounts = dayEvents.length - options.eventsInDay;
-          const expanded = expandStatus[day] === true;
+        {calendar
+          .reduce((acc, week) => [...acc, ...week], [])
+          .map((dayItem, i) => {
+            const day = dayItem.format("YYYY-MM-DD");
+            const dayEvents = events[day] || [];
+            const dayEventsSlice = dayEvents.slice(0, options.eventsInDay);
+            const moreCounts = dayEvents.length - options.eventsInDay;
+            const expanded = expandStatus[day] === true;
 
-          return (
-            <div
-              key={i}
-              className="flex flex-col gap-3 border-[1px] border-gray-200 p-1"
-            >
-              <p className="text-left text-primary font-semibold">
-                {dayItem.date()}
-              </p>
-              <div className="flex flex-col gap-1">
-                {loading ? (
-                  <>
-                    {Array(Utils.Number.getRandomInt(0, 2))
-                      .fill({})
-                      .map((_, j) => (
-                        <Skeleton
-                          key={`${day}-(${j})`}
-                          className="w-full h-20"
-                        />
+            return (
+              <div
+                key={i}
+                className="flex flex-col gap-3 border-[1px] border-gray-200 p-1"
+              >
+                <p className="text-left text-primary font-semibold">
+                  {dayItem.date()}
+                </p>
+                <div className="flex flex-col gap-1">
+                  {loading ? (
+                    <>
+                      {Array(Utils.Number.getRandomInt(0, 2))
+                        .fill({})
+                        .map((_, j) => (
+                          <Skeleton
+                            key={`${day}-(${j})`}
+                            className="w-full h-20"
+                          />
+                        ))}
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      {(expanded ? dayEvents : dayEventsSlice).map((e, j) => (
+                        <EventItem key={`${i}-${j}`} event={e} />
                       ))}
-                  </>
-                ) : (
-                  <>
-                    {" "}
-                    {(expanded ? dayEvents : dayEventsSlice).map((e, j) => (
-                      <EventItem key={`${i}-${j}`} event={e} />
-                    ))}
-                    {moreCounts > 0 && !expanded && (
-                      <button
-                        onClick={() =>
-                          setExpandStatus((prev) => ({ ...prev, [day]: true }))
-                        }
-                        className="text-left text-sm text-primary hover:text-opacity-70"
-                      >
-                        +{moreCounts} more
-                      </button>
-                    )}
-                  </>
-                )}
+                      {moreCounts > 0 && !expanded && (
+                        <button
+                          onClick={() =>
+                            setExpandStatus((prev) => ({
+                              ...prev,
+                              [day]: true,
+                            }))
+                          }
+                          className="text-left text-sm text-primary hover:text-opacity-70"
+                        >
+                          +{moreCounts} more
+                        </button>
+                      )}
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </div>
   );

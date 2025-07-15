@@ -176,33 +176,35 @@ export default function Calendar({
         key={currentMonth.format("YYYY-MM")}
         className="grid grid-cols-7 gap-1 animate-fade-in"
       >
-        {calendar.flat().map((dayItem, i) => {
-          const disabled = isDateDisabled(dayItem);
-          const outOfMonth = !isCurrentMonth(dayItem);
+        {calendar
+          .reduce((acc, week) => [...acc, ...week], [])
+          .map((dayItem, i) => {
+            const disabled = isDateDisabled(dayItem);
+            const outOfMonth = !isCurrentMonth(dayItem);
 
-          return (
-            <button
-              key={i}
-              onClick={() => handleDateClick(dayItem)}
-              disabled={disabled}
-              className={clsx(
-                "w-8 h-8 rounded-lg text-sm flex items-center justify-center custom-animation",
-                {
-                  "bg-primary text-white": isSelected(dayItem),
-                  "bg-primary/30 text-white": isInRange(dayItem),
-                  "bg-primary bg-opacity-10":
-                    isToday(dayItem) && !isSelected(dayItem),
-                  "text-text": isCurrentMonth(dayItem),
-                  "text-text-light": outOfMonth,
-                  "hover:bg-primary hover:text-white": !disabled,
-                  "opacity-50 cursor-not-allowed": disabled,
-                }
-              )}
-            >
-              {dayItem.date()}
-            </button>
-          );
-        })}
+            return (
+              <button
+                key={i}
+                onClick={() => handleDateClick(dayItem)}
+                disabled={disabled}
+                className={clsx(
+                  "w-8 h-8 rounded-lg text-sm flex items-center justify-center custom-animation",
+                  {
+                    "bg-primary text-white": isSelected(dayItem),
+                    "bg-primary/30 text-white": isInRange(dayItem),
+                    "bg-primary bg-opacity-10":
+                      isToday(dayItem) && !isSelected(dayItem),
+                    "text-text": isCurrentMonth(dayItem),
+                    "text-text-light": outOfMonth,
+                    "hover:bg-primary hover:text-white": !disabled,
+                    "opacity-50 cursor-not-allowed": disabled,
+                  }
+                )}
+              >
+                {dayItem.date()}
+              </button>
+            );
+          })}
       </div>
     </div>
   );
