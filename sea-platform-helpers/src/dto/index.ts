@@ -9,3 +9,4 @@ export * as Department from "./department";
 export * as Calendar from "./calendar";
 export * as EventCategory from "./event-category";
 export * as Event from "./event";
+export * as Goal from "./goal";
