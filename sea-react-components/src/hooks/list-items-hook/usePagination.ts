@@ -36,8 +36,8 @@ export function usePagination(
 
   useEffect(() => {
     if (getParam && !initializedRef.current) {
-      const defaultPage = Number(getParam(pageParam)) || 1;
-      const defaultRows = Number(getParam(rowsParam)) || 10;
+      const defaultPage = Number(getParam(pageParam)) || page;
+      const defaultRows = Number(getParam(rowsParam)) || rowsPerPage;
       setPage(defaultPage);
       setRowsPerPage(defaultRows);
       initializedRef.current = true;
