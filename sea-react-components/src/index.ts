@@ -82,6 +82,7 @@ export {
 export {
   default as CardsList,
   Props as CardsListProps,
+  DEFAULT_CARDS_LIST_ROWS_PER_PAGE_OPTIONS,
 } from "./components/cards-list";
 
 export {
