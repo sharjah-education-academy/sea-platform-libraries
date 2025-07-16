@@ -64,19 +64,20 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
 
   return (
     <div className="group">
-      <button
+      <div
         onClick={() => toggleItem(itemId)}
-        className="w-full flex justify-between items-center px-4 py-3 bg-white hover:bg-gray-50 transition text-left"
+        className="w-full flex justify-between items-center gap-3 px-4 py-3 bg-white hover:bg-gray-50 transition text-left"
       >
-        <span className="font-medium text-gray-800">{title}</span>
+        <div className="w-full">{title}</div>
+
         <Icon
           icon="weui:arrow-filled"
-          className={clsx("h-5 w-5 custom-animation", {
+          className={clsx("h-5 w-5 cursor-pointer  custom-animation", {
             "-rotate-90": isOpen,
             "rotate-90": !isOpen,
           })}
         />
-      </button>
+      </div>
       <div
         className={`px-4 pb-4 overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
