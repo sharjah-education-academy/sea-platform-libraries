@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "../icon";
 
-type Props = {
+export type Props = {
   className?: string;
 };
 export default function Loader({
