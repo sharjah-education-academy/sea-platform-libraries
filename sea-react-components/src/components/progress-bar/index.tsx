@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-export type Types =
+export type ProgressBarType =
   | "primary"
   | "secondary"
   | "success"
@@ -9,7 +9,9 @@ export type Types =
   | "warning"
   | "error";
 
-const colors: Record<Types, string> = {
+export type ProgressBarSize = "xs" | "sm" | "md" | "lg" | "xl";
+
+const backgroundColors: Record<ProgressBarType, string> = {
   primary: "bg-primary",
   secondary: "bg-secondary",
   success: "bg-success",
@@ -18,16 +20,15 @@ const colors: Record<Types, string> = {
   error: "bg-error",
 };
 
-export type Sizes = "xs" | "sm" | "md" | "lg" | "xl";
-
-const barHights: Record<Sizes, string> = {
+const barHeights: Record<ProgressBarSize, string> = {
   xs: "h-[6px]",
   sm: "h-[10px]",
   md: "h-[14px]",
   lg: "h-[20px]",
   xl: "h-[24px]",
 };
-const textSizes: Record<Sizes, string> = {
+
+const textSizes: Record<ProgressBarSize, string> = {
   xs: "text-[6px]",
   sm: "text-[10px]",
   md: "text-[12px]",
@@ -38,38 +39,42 @@ const textSizes: Record<Sizes, string> = {
 export type Props = {
   percentage?: number;
   showPercentage?: boolean;
-  size?: Sizes;
-  type?: Types;
+  size?: ProgressBarSize;
+  type?: ProgressBarType;
 } & React.HTMLAttributes<HTMLDivElement>;
+
 export default function ProgressBar({
   percentage = 0,
-  className,
+  showPercentage = false,
   size = "md",
   type = "primary",
-  showPercentage = false,
+  className,
+  ...rest
 }: Props) {
-  const hightClass = barHights[size];
+  const heightClass = barHeights[size];
   const textClass = textSizes[size];
-  const bgClass = colors[type];
+  const fillColor = backgroundColors[type];
 
   return (
-    <div className="relative bg-gray-300 rounded-full overflow-hidden">
+    <div
+      className={clsx(
+        "w-full bg-gray-300 rounded-full overflow-hidden",
+        heightClass
+      )}
+      {...rest}
+    >
       <div
         className={clsx(
-          "w-full flex items-center rounded-full transition-all duration-300 ease-in-out",
-          hightClass,
-          textClass,
-          bgClass,
-          className
+          "flex items-center justify-center rounded-full transition-all duration-300 ease-in-out",
+          fillColor,
+          textClass
         )}
-        style={{
-          width: `${percentage}%`,
-        }}
+        style={{ width: `${Math.min(Math.max(percentage, 0), 100)}%` }}
       >
         {showPercentage && (
-          <p className=" text-white text-center w-full">
-            {percentage ? percentage : 0} %
-          </p>
+          <span className="text-white w-full text-center">
+            {Math.round(percentage)}%
+          </span>
         )}
       </div>
     </div>

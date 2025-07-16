@@ -5,7 +5,8 @@ import clsx from "clsx";
 const offsetFactor = 1.3;
 
 const sizeValues: Record<AvatarSize, number> = {
-  sm: 30,
+  xs: 30,
+  sm: 40,
   md: 50,
   lg: 70,
   xl: 90,
