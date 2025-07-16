@@ -182,6 +182,11 @@ export {
 } from "./components/day-calendar";
 
 export { default as Loader, Props as LoaderProps } from "./components/loader";
+export {
+  default as ItemNouFound,
+  Props as ItemNouFoundProps,
+} from "./components/item-not-found";
+
 export * from "./components/accordion";
 
 export {
