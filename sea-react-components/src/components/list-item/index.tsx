@@ -130,7 +130,13 @@ export default function ListItem<K>({
       </div>
 
       <div className="overflow-x-auto">
-        {loading ? <Loader /> : <>{children}</>}
+        {loading ? (
+          <div className="flex items-center justify-center">
+            <Loader />
+          </div>
+        ) : (
+          <>{children}</>
+        )}
       </div>
 
       {showPaginationRow && (
