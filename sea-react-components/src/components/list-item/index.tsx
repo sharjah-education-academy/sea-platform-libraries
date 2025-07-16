@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Select, { SelectOption } from "../select";
 import Button from "../button";
 
-import SearchInput from "./components/search-input";
+import SearchInput from "../search-input";
 import Pagination from "./components/pagination";
 import {
   BulkActionFeature,
