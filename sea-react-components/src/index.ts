@@ -48,6 +48,11 @@ export { default as Paper, Props as PaperProps } from "./components/paper";
 
 export { default as Input, Props as InputProps } from "./components/input";
 export {
+  default as AutoCompleteInput,
+  Props as AutoCompleteInputProps,
+} from "./components/auto-complete-input";
+
+export {
   default as Textarea,
   Props as TextareaProps,
 } from "./components/textarea";
