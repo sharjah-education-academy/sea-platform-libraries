@@ -30,10 +30,10 @@ const barHeights: Record<ProgressBarSize, string> = {
 
 const textSizes: Record<ProgressBarSize, string> = {
   xs: "text-[6px]",
-  sm: "text-[10px]",
-  md: "text-[12px]",
-  lg: "text-[16px]",
-  xl: "text-[20px]",
+  sm: "text-[7.5px]",
+  md: "text-[10px]",
+  lg: "text-[14px]",
+  xl: "text-[16px]",
 };
 
 export type Props = {
@@ -58,25 +58,32 @@ export default function ProgressBar({
   return (
     <div
       className={clsx(
-        "w-full bg-gray-300 rounded-full overflow-hidden",
-        heightClass
+        "w-full bg-gray-300 rounded-full overflow-hidden relative",
+        heightClass,
+        className
       )}
       {...rest}
     >
       <div
         className={clsx(
-          "flex items-center justify-center rounded-full transition-all duration-300 ease-in-out",
-          fillColor,
-          textClass
+          "rounded-full transition-all duration-300 ease-in-out min-w-[1px]",
+          fillColor
         )}
-        style={{ width: `${Math.min(Math.max(percentage, 0), 100)}%` }}
-      >
-        {showPercentage && (
-          <span className="text-white w-full text-center">
-            {Math.round(percentage)}%
-          </span>
-        )}
-      </div>
+        style={{
+          width: `${Math.min(Math.max(percentage, 0), 100)}%`,
+          height: "100%",
+        }}
+      />
+      {showPercentage && (
+        <div
+          className={clsx(
+            "absolute inset-0 flex items-center justify-center text-white pointer-events-none",
+            textClass
+          )}
+        >
+          {Math.round(percentage)}%
+        </div>
+      )}
     </div>
   );
 }
