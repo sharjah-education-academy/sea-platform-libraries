@@ -2,10 +2,9 @@ import React from "react";
 import Avatar, { AvatarSize, Props as AvatarProps } from "../avatar";
 import clsx from "clsx";
 
-const offsetFactor = 1.3;
-
 const sizeValues: Record<AvatarSize, number> = {
-  sm: 30,
+  xs: 30,
+  sm: 40,
   md: 50,
   lg: 70,
   xl: 90,
@@ -15,53 +14,55 @@ const DEFAULT_MAX = 3;
 
 export type Props = {
   name: string;
+  items: AvatarProps[];
   max?: number;
   size?: AvatarSize;
-  className?: string | undefined;
-  items: AvatarProps[];
+  className?: string;
+  offsetFactor?: number; // Controls overlap
 };
+
 export default function StackedAvatars({
   name,
+  items,
   max = DEFAULT_MAX,
   size = "md",
   className,
-  items,
+  offsetFactor = 1.3,
 }: Props) {
-  if (max <= 0) max = DEFAULT_MAX;
-
   const sizeValue = sizeValues[size];
+  const clampedMax = Math.max(1, Math.min(max, items.length));
+  const avatarsToDisplay = items.slice(0, clampedMax);
+  const remainingCount = items.length - clampedMax;
 
-  const avatarsToDisplay = items.slice(0, max);
-
-  const remaining = items.length - max;
   return (
     <div
-      className="relative flex items-center justify-center w-full"
+      className={clsx("relative flex", className)}
       style={{ height: sizeValue }}
     >
       {avatarsToDisplay.map((item, i) => (
-        <Avatar
-          key={`${name}-avatar-${i}`}
-          {...item}
-          className={clsx(className, "absolute")}
-          style={{ left: (i * sizeValue) / offsetFactor }}
-          size={size}
-        />
-      ))}
-
-      {remaining > 0 && (
         <div
-          className={clsx(
-            className,
-            "absolute flex items-center justify-center  text-white bg-secondary"
-          )}
+          key={`${name}-avatar-${i}`}
+          className="absolute"
           style={{
-            left: (max * sizeValue) / offsetFactor,
-            width: sizeValue,
-            height: sizeValue,
+            left: `${(i * sizeValue) / offsetFactor}px`,
+            zIndex: avatarsToDisplay.length - i,
           }}
         >
-          +{items.length - max}
+          <Avatar {...item} size={size} />
+        </div>
+      ))}
+
+      {remainingCount > 0 && (
+        <div
+          className="absolute flex items-center justify-center bg-gray-400 text-white rounded-full text-xs font-medium"
+          style={{
+            left: `${(clampedMax * sizeValue) / offsetFactor}px`,
+            width: sizeValue,
+            height: sizeValue,
+            zIndex: 0,
+          }}
+        >
+          +{remainingCount}
         </div>
       )}
     </div>

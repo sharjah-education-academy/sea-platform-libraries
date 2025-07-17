@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Select, { SelectOption } from "../select";
 import Button from "../button";
 
-import SearchInput from "./components/search-input";
+import SearchInput from "../search-input";
 import Pagination from "./components/pagination";
 import {
   BulkActionFeature,
@@ -130,7 +130,13 @@ export default function ListItem<K>({
       </div>
 
       <div className="overflow-x-auto">
-        {loading ? <Loader /> : <>{children}</>}
+        {loading ? (
+          <div className="flex items-center justify-center">
+            <Loader />
+          </div>
+        ) : (
+          <>{children}</>
+        )}
       </div>
 
       {showPaginationRow && (

@@ -1,7 +1,7 @@
 "use client";
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
-import Input, { Props as InputProps } from "../../../input";
+import Input, { Props as InputProps } from "../input";
 
 export type Props = {
   onDebouncedChange: (newValue: string) => void;

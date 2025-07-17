@@ -33,3 +33,12 @@ export const isEmail = (str: string) => {
 export const isColor = (str: string) => {
   return colorRegex.test(str);
 };
+
+export const getInitials = (name: string) => {
+  if (!name) return "";
+
+  const words = name.trim().split(/\s+/); // split by spaces
+  const initials = words.map((word) => word[0]?.toUpperCase()).filter(Boolean);
+
+  return (initials[0] || "") + (initials[1] || "");
+};

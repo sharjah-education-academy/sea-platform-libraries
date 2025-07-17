@@ -10,3 +10,7 @@ export * as Calendar from "./calendar";
 export * as EventCategory from "./event-category";
 export * as Event from "./event";
 export * as Goal from "./goal";
+export * as Initiative from "./initiative";
+export * as Project from "./project";
+export * as Task from "./task";
+export * as Comment from "./comment";

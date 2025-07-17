@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-export type Types =
+export type ProgressBarType =
   | "primary"
   | "secondary"
   | "success"
@@ -9,7 +9,9 @@ export type Types =
   | "warning"
   | "error";
 
-const colors: Record<Types, string> = {
+export type ProgressBarSize = "xs" | "sm" | "md" | "lg" | "xl";
+
+const backgroundColors: Record<ProgressBarType, string> = {
   primary: "bg-primary",
   secondary: "bg-secondary",
   success: "bg-success",
@@ -18,60 +20,70 @@ const colors: Record<Types, string> = {
   error: "bg-error",
 };
 
-export type Sizes = "xs" | "sm" | "md" | "lg" | "xl";
-
-const barHights: Record<Sizes, string> = {
+const barHeights: Record<ProgressBarSize, string> = {
   xs: "h-[6px]",
   sm: "h-[10px]",
   md: "h-[14px]",
   lg: "h-[20px]",
   xl: "h-[24px]",
 };
-const textSizes: Record<Sizes, string> = {
+
+const textSizes: Record<ProgressBarSize, string> = {
   xs: "text-[6px]",
-  sm: "text-[10px]",
-  md: "text-[12px]",
-  lg: "text-[16px]",
-  xl: "text-[20px]",
+  sm: "text-[7.5px]",
+  md: "text-[10px]",
+  lg: "text-[14px]",
+  xl: "text-[16px]",
 };
 
 export type Props = {
   percentage?: number;
   showPercentage?: boolean;
-  size?: Sizes;
-  type?: Types;
+  size?: ProgressBarSize;
+  type?: ProgressBarType;
 } & React.HTMLAttributes<HTMLDivElement>;
+
 export default function ProgressBar({
   percentage = 0,
-  className,
+  showPercentage = false,
   size = "md",
   type = "primary",
-  showPercentage = false,
+  className,
+  ...rest
 }: Props) {
-  const hightClass = barHights[size];
+  const heightClass = barHeights[size];
   const textClass = textSizes[size];
-  const bgClass = colors[type];
+  const fillColor = backgroundColors[type];
 
   return (
-    <div className="relative bg-gray-300 rounded-full overflow-hidden">
+    <div
+      className={clsx(
+        "w-full bg-gray-300 rounded-full overflow-hidden relative",
+        heightClass,
+        className
+      )}
+      {...rest}
+    >
       <div
         className={clsx(
-          "w-full flex items-center rounded-full transition-all duration-300 ease-in-out",
-          hightClass,
-          textClass,
-          bgClass,
-          className
+          "rounded-full transition-all duration-300 ease-in-out min-w-[1px]",
+          fillColor
         )}
         style={{
-          width: `${percentage}%`,
+          width: `${Math.min(Math.max(percentage, 0), 100)}%`,
+          height: "100%",
         }}
-      >
-        {showPercentage && (
-          <p className=" text-white text-center w-full">
-            {percentage ? percentage : 0} %
-          </p>
-        )}
-      </div>
+      />
+      {showPercentage && (
+        <div
+          className={clsx(
+            "absolute inset-0 flex items-center justify-center text-white pointer-events-none",
+            textClass
+          )}
+        >
+          {Math.round(percentage)}%
+        </div>
+      )}
     </div>
   );
 }

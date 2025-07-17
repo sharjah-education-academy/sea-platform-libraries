@@ -58,13 +58,15 @@ export default function Modal({
 
   return (
     <div
-      className="fixed inset-0 bg-black z-50 overflow-auto"
-      style={{ backgroundColor: `rgba(0,0,0,0.${overlayPercentage})` }}
+      className="fixed inset-0 bg-black z-50 overflow-auto animate-fade-in"
+      style={{
+        backgroundColor: `rgba(0,0,0,0.${overlayPercentage})`,
+      }}
       onClick={onClose}
     >
       <div
         className={clsx(
-          "absolute bg-white rounded-lg shadow-lg p-6 max-h-[90vh] overflow-y-auto",
+          "absolute bg-white rounded-lg shadow-lg p-6 max-h-[90vh] overflow-y-auto ",
           sizeClasses[size],
           positionClasses[position],
           className
