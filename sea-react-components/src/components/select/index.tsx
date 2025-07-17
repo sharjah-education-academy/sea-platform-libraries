@@ -73,7 +73,7 @@ export default function Select<T>({
         <div
           onClick={() => setIsOpen((o) => !o)}
           className={clsx(
-            "text-text cursor-pointer flex items-center justify-between gap-2 bg-white px-3 py-2 rounded-xl border-0.5",
+            "text-text cursor-pointer flex items-center justify-between gap-2 bg-white px-3 py-2 rounded-md border-0.5",
             errorMessage
               ? "border-error"
               : isOpen
@@ -115,7 +115,7 @@ export default function Select<T>({
         </div>
 
         {isOpen && (
-          <div className="absolute left-0 mt-1 w-full z-50 bg-white border border-gray-200 rounded-xl shadow-lg max-h-64 overflow-auto">
+          <div className="absolute left-0 mt-1 w-full z-50 bg-white border border-gray-200 rounded-md shadow-lg max-h-64 overflow-auto animate-fade-in">
             {options.map((o, i) => {
               const isSelected = selectedOptions.some((s) =>
                 Object.is(s.value, o.value)
