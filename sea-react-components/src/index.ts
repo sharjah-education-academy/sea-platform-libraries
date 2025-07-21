@@ -53,6 +53,11 @@ export {
 } from "./components/auto-complete-input";
 
 export {
+  default as EditableText,
+  Props as EditableTextProps,
+} from "./components/editable-text";
+
+export {
   default as Textarea,
   Props as TextareaProps,
 } from "./components/textarea";
