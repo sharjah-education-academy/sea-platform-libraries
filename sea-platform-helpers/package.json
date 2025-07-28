@@ -1,7 +1,7 @@
 {
   "name": "sea-platform-helpers",
   "description": "SEA platform helpers library",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc --build",
