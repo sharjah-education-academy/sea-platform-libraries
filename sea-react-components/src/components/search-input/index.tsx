@@ -1,12 +1,13 @@
 "use client";
 import { Icon } from "@iconify/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Input, { Props as InputProps } from "../input";
 
 export type Props = {
   onDebouncedChange: (newValue: string) => void;
   QueryDebouncedTime?: number;
 } & InputProps;
+
 export default function SearchInput({
   value,
   onDebouncedChange,
@@ -15,6 +16,7 @@ export default function SearchInput({
 }: Props) {
   const [currentValue, setCurrentValue] = useState<string>(value as string);
   const [debouncedQuery, setDebouncedQuery] = useState("");
+  const isFirstRun = useRef(true);
 
   useEffect(() => {
     setCurrentValue((value || "").toString());
@@ -24,17 +26,17 @@ export default function SearchInput({
     const handler = setTimeout(() => {
       setDebouncedQuery(currentValue);
     }, QueryDebouncedTime);
-
-    // Cleanup the timeout on every keystroke
     return () => clearTimeout(handler);
   }, [currentValue, QueryDebouncedTime]);
 
-  // Trigger the callback when debouncedQuery changes
   useEffect(() => {
-    if (onDebouncedChange) {
-      onDebouncedChange(debouncedQuery);
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
     }
-  }, [debouncedQuery, onDebouncedChange]);
+    onDebouncedChange(debouncedQuery);
+  }, [debouncedQuery]);
+
   return (
     <Input
       value={currentValue}
