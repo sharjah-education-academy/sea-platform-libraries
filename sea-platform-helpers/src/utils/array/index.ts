@@ -1,6 +1,25 @@
-// Remove duplicate items from an array
-export const removeDuplicates = <T>(array: T[]): T[] => {
-  return Array.from(new Set(array));
+/**
+ * Removes duplicates from an array using an optional comparer.
+ * Default comparison uses JSON.stringify, which works for simple structures.
+ *
+ * @param array - The array to deduplicate
+ * @param comparer - Optional comparison function to define equality
+ * @returns A new array without duplicates
+ */
+export const removeDuplicates = <T>(
+  array: T[],
+  comparer: (a: T, b: T) => boolean = (a, b) =>
+    JSON.stringify(a) === JSON.stringify(b)
+): T[] => {
+  const result: T[] = [];
+
+  for (const item of array) {
+    if (!result.some((existingItem) => comparer(existingItem, item))) {
+      result.push(item);
+    }
+  }
+
+  return result;
 };
 
 // Push an item into the array if it doesn't already exist
