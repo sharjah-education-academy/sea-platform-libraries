@@ -3,7 +3,7 @@ import { IArrayDataResponse } from "../global";
 
 export enum CommentSupportedModels {
   Task = "Task",
-  Comment = "Comment",
+  Project = "Project",
   Initiative = "Initiative",
 }
 
@@ -11,6 +11,7 @@ export interface IComment {
   id: string;
   description: string;
   createdAt: string;
+  updatedAt: string;
   edited: boolean;
   account?: IAccount;
 }

@@ -11,7 +11,14 @@ export type Props<T extends string | number | { id: string }> = {
   selectedOptions?: T[];
   setSelectedOptions?: (opts: T[]) => void;
   onOptionSelect?: (option: SelectOption<T>) => void;
+  multiselect?: boolean;
   loading?: boolean;
+  renderSelectedOptions?: (selected: T[]) => React.ReactNode;
+  renderContainer?: (content: {
+    input: React.ReactNode;
+    dropdown: React.ReactNode;
+    selected: React.ReactNode;
+  }) => React.ReactNode;
 } & Omit<React.ComponentProps<typeof SearchInput>, "onDebouncedChange"> & {
     onDebouncedChange?: (val: string) => void;
   };
@@ -28,6 +35,9 @@ export default function AutoCompleteInput<
   onChange,
   onDebouncedChange,
   loading = false,
+  multiselect = true,
+  renderSelectedOptions,
+  renderContainer,
   ...rest
 }: Props<T>) {
   const [show, setShow] = useState(false);
@@ -66,61 +76,92 @@ export default function AutoCompleteInput<
     });
   };
 
-  const filteredOptions = options.filter((o) => !isAlreadySelected(o));
+  const filteredOptions = multiselect
+    ? options.filter((o) => !isAlreadySelected(o))
+    : options;
 
   const handleSelect = (option: SelectOption<T>) => {
     setInputValue("");
     onChange?.({ target: { name, value: "" } } as any);
 
-    if (!isAlreadySelected(option)) {
-      setSelectedOptions?.([...selectedOptions, option.value]);
+    if (multiselect) {
+      if (!isAlreadySelected(option)) {
+        setSelectedOptions?.([...selectedOptions, option.value]);
+      }
+    } else {
+      setSelectedOptions?.([option.value]); // Only one selection
+      setShow(false); // Hide dropdown immediately
     }
 
     onOptionSelect?.(option);
-    setShow(false);
   };
 
-  return (
-    <div className="relative" ref={containerRef}>
-      <SearchInput
-        name={name}
-        value={inputValue}
-        onFocus={() => setShow(true)}
-        onChange={(e) => {
-          setInputValue(e.target.value);
-          onChange?.(e);
-        }}
-        onDebouncedChange={(val) => {
-          setShow(true);
-          onDebouncedChange?.(val);
-        }}
-        autoComplete="off"
-        {...rest}
-      />
+  useEffect(() => {
+    setInputValue(value?.toString() ?? "");
+  }, [value]);
 
-      {show && inputValue.trim() !== "" && (
-        <div className="absolute z-10 w-full mt-1 bg-white border rounded shadow max-h-60 overflow-y-auto">
-          {loading ? (
-            <div className="p-4 flex justify-center items-center">
-              <Loader />
+  const input = (
+    <SearchInput
+      name={name}
+      value={inputValue}
+      onFocus={() => setShow(true)}
+      onChange={(e) => {
+        setInputValue(e.target.value);
+        onChange?.(e);
+      }}
+      onDebouncedChange={(val) => {
+        setShow(true);
+        onDebouncedChange?.(val);
+      }}
+      autoComplete="off"
+      {...rest}
+    />
+  );
+
+  const dropdown =
+    show && inputValue.trim() !== "" ? (
+      <div className="absolute z-10 w-full mt-1 bg-white border rounded shadow max-h-60 overflow-y-auto">
+        {loading ? (
+          <div className="p-4 flex justify-center items-center">
+            <Loader />
+          </div>
+        ) : filteredOptions.length > 0 ? (
+          filteredOptions.map((o, i) => (
+            <div
+              key={`${name}-option-${i}`}
+              className={clsx(
+                "px-4 py-2 cursor-pointer custom-animation hover:bg-primary hover:bg-opacity-20"
+              )}
+              onClick={() => handleSelect(o)}
+            >
+              {o.label}
             </div>
-          ) : filteredOptions.length > 0 ? (
-            filteredOptions.map((o, i) => (
-              <div
-                key={`${name}-option-${i}`}
-                className={clsx(
-                  "px-4 py-2 cursor-pointer custom-animation hover:bg-primary hover:bg-opacity-20"
-                )}
-                onClick={() => handleSelect(o)}
-              >
-                {o.label}
-              </div>
-            ))
-          ) : (
-            <div className="p-4 text-center text-gray-400">
-              No options found
-            </div>
-          )}
+          ))
+        ) : (
+          <div className="p-4 text-center text-gray-400">No options found</div>
+        )}
+      </div>
+    ) : null;
+
+  const selected = selectedOptions.length
+    ? renderSelectedOptions?.(selectedOptions)
+    : null;
+
+  return (
+    <div ref={containerRef}>
+      {renderContainer ? (
+        <div className="relative">
+          {renderContainer({
+            input,
+            dropdown,
+            selected,
+          })}
+        </div>
+      ) : (
+        <div className="relative">
+          {selected}
+          {input}
+          {dropdown}
         </div>
       )}
     </div>

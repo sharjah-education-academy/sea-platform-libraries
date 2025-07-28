@@ -9,3 +9,4 @@ export * as Task from "./task";
 export * as StrategySocket from "./strategy-socket";
 export * as Event from "./event";
 export * as JWT from "./jwt";
+export * as Global from "./global";
