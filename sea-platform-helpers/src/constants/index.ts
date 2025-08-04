@@ -10,3 +10,4 @@ export * as StrategySocket from "./strategy-socket";
 export * as Event from "./event";
 export * as JWT from "./jwt";
 export * as Global from "./global";
+export * as Notification from "./notification";

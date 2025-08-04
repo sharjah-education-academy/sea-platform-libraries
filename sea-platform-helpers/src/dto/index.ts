@@ -15,3 +15,4 @@ export * as Project from "./project";
 export * as Task from "./task";
 export * as Comment from "./comment";
 export * as KPI from "./kpi";
+export * as Notification from "./notification";
