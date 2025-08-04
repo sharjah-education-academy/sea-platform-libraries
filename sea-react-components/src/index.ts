@@ -39,6 +39,16 @@ export {
 } from "./components/menu/menu-item";
 
 export {
+  default as NativeMenu,
+  Props as NativeMenuProps,
+} from "./components/native-menu";
+
+export {
+  default as NativeMenuItem,
+  Props as NativeMenuItemProps,
+} from "./components/native-menu/native-menu-item";
+
+export {
   default as Select,
   Props as SelectProps,
   SelectOption,
@@ -198,6 +208,11 @@ export {
 } from "./components/item-not-found";
 
 export * from "./components/accordion";
+
+export {
+  default as NotificationsMenu,
+  Props as NotificationsMenuProps,
+} from "./components/notifications-menu";
 
 export {
   default as WithAuthorization,
