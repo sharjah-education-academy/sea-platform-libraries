@@ -51,3 +51,5 @@ export const createInstance = (
 
   return axiosInstance;
 };
+
+export default axios;
