@@ -33,6 +33,11 @@ export enum PermissionKeys {
   ManageDepartmentRead = "manage-department-read",
   ManageDepartmentUpdateDetails = "manage-department-update-details",
   ManageDepartmentDelete = "manage-department-delete",
+  ManageEmailTemplate = "manage-email-template",
+  ManageEmailTemplateCreate = "manage-email-template-create",
+  ManageEmailTemplateRead = "manage-email-template-read",
+  ManageEmailTemplateUpdateDetails = "manage-email-template-update-details",
+  ManageEmailTemplateDelete = "manage-email-template-delete",
 
   // Strategy Application
   StrategyApp = "strategy-app",
@@ -256,6 +261,38 @@ export const PERMISSIONS: IPermission[] = [
             applicationKey: ApplicationKeys.PlatformAdministrationApplication,
             key: PermissionKeys.ManageApplicationUpdateDetails,
             name: "Update Application Details",
+            isLeaf: true,
+          },
+        ],
+      },
+      {
+        applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+        key: PermissionKeys.ManageEmailTemplate,
+        name: "Manage Email Templates",
+        isLeaf: false,
+        children: [
+          {
+            applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+            key: PermissionKeys.ManageEmailTemplateRead,
+            name: "Read Email Templates",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+            key: PermissionKeys.ManageEmailTemplateCreate,
+            name: "Create Email Templates",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+            key: PermissionKeys.ManageEmailTemplateUpdateDetails,
+            name: "Update Email Template Details",
+            isLeaf: true,
+          },
+          {
+            applicationKey: ApplicationKeys.PlatformAdministrationApplication,
+            key: PermissionKeys.ManageEmailTemplateDelete,
+            name: "Delete Email Templates",
             isLeaf: true,
           },
         ],
