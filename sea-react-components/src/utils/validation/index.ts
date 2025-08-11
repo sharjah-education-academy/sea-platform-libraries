@@ -1,7 +1,8 @@
 import * as Yup from "yup";
 import { Utils } from "sea-platform-helpers";
 
-export const name = Yup.string().min(3).max(50).required("Required");
+export const name = Yup.string().min(3).max(255).required("Required");
+export const description = Yup.string().trim().optional().min(3).max(1000);
 export const birthDate = Yup.string().required("Required");
 export const email = Yup.string().email().required("Required");
 export const phoneNumber = Yup.string()
