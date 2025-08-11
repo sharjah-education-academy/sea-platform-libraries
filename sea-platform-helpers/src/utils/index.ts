@@ -6,3 +6,4 @@ export * as DFS from "./dfs";
 export * as Array from "./array";
 export * as Number from "./numbers";
 export * as Tree from "./tree";
+export * as Language from "./language";
